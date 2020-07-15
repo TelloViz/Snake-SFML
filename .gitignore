@@ -6,3 +6,5 @@ license.txt
 *.vcxproj.
 *.opendb
 *.ipch
+*.vs
+.vs/*

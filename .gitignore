@@ -1,0 +1,7 @@
+*/Release/*
+*/Debug/*
+*.aseprite
+*.zip
+license.txt
+.vcxproj.*
+*.opendb

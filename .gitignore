@@ -1,8 +1,8 @@
-*/Release/*
-*/Debug/*
+Release/
+Debug/
 *.aseprite
 *.zip
 license.txt
-.vcxproj.*
+*.vcxproj.
 *.opendb
 *.ipch

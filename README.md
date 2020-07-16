@@ -131,5 +131,5 @@ Project Link: [https://github.com/Tello-/Snake-SFML)
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/lollisjosh
 [product-screenshot]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/TitleScreen.JPG
-[product-screenshot2]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/Bones.JPG
+[product-screenshot2]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/Bones2.JPG
 [product-screenshot3]:https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/HighScoreScreen.JPG

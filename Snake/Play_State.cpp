@@ -326,7 +326,12 @@ void Play_State::UpdateState()
 	}
 
 
-	m_debugWindow.update(Debug_Info_Bundle{m_snake.front()});
+	m_debugWindow.update(Debug_Info_Bundle{
+		m_snake.front(),
+		m_currDir,
+		m_appleCoord,
+		m_score,
+		m_ruleMonitor.Num_Apples_Collected()});
 
 
 #ifdef DEBUG_OUTPUT

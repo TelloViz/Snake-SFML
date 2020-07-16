@@ -14,11 +14,19 @@
 struct Debug_Info_Bundle
 {
 	sf::Vector2i snake_coord{0,0};
+	int direction{ 0 };
+	sf::Vector2i apple_coord{ 0,0 };
+	int score{ 0 };
+	unsigned apples_collected{ 0 };
+
 };
 
 
 class Debug_Window
 {
+	enum Direction { NONE = 0, UP, DOWN, LEFT, RIGHT };
+
+
 public:
 	Debug_Window();
 
@@ -34,10 +42,36 @@ private:
 	sf::Font			m_font;
 	
 	sf::Text			m_snakePosLabel;
-	sf::Vector2f		m_snakePosLabelPos;
+	sf::Vector2f		m_snakePosLabelPos{ 0.f, 0.f };
 
 	sf::Text			m_snakePosText;
-	sf::Vector2f		m_snakePosTextPos;
+	sf::Vector2f		m_snakePosTextPos{ 200.f, 0.f };
+
+	sf::Text			m_directionLabel;
+	sf::Vector2f		m_directionLabelPos{ 0.f, 50.f };
+
+	sf::Text			m_directionText;
+	sf::Vector2f		m_directionTextPos{ 125.f, 50.f };
+
+	sf::Text			m_applePosLabel;
+	sf::Vector2f		m_applePosLabelPos{0.f, 100.f};
+
+	sf::Text			m_applePosText;
+	sf::Vector2f		m_applePosTextPos{ 200.f, 100.f };
+
+	sf::Text			m_scoreLabel;
+	sf::Vector2f		m_scoreLabelPos{ 0.f, 150.f };
+
+	sf::Text			m_scoreText;
+	sf::Vector2f		m_scoreTextPos{150.f, 150.f};
+
+	sf::Text			m_applesCollectedLabel;
+	sf::Vector2f		m_applesCollectedLabelPos{0.f, 200.f};
+
+	sf::Text			m_applesCollectedText;
+	sf::Vector2f		m_applesCollectedTextPos{125.f, 200.f};
+
+	
 	
 
 

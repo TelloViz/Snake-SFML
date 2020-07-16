@@ -101,11 +101,11 @@ private: // private methods
     ////////////////////////////////////////////////////////////
 	virtual void RequestWindowTranslation(int x_dir, int y_dir);
 
-     virtual void RequestPlayAgain() = 0;
+     virtual void RequestPlayAgain();
 
-     virtual void RequestPause() = 0;
+     virtual void RequestPause();
 
-     virtual void RequestGameOver(int) = 0;
+     virtual void RequestGameOver(int);
 
 
 

@@ -8,3 +8,4 @@ license.txt
 *.vs
 .vs/*
 x64/*
+"Art Files"/*

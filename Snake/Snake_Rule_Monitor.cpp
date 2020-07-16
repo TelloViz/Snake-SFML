@@ -12,8 +12,8 @@ bool Snake_Rule_Monitor::Within_Bounds(const Snake& snake) const
 {
 	if (snake.front().x < m_xDim &&
 		snake.front().x >= 0 &&
-		snake.front().y < m_yDim &&
-		snake.front().y >= 0)
+		snake.front().y < m_yDim  &&
+		snake.front().y > 0)
 		return true;
 	else 
 		return false;

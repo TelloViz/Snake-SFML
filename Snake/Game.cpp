@@ -5,7 +5,7 @@
 Snake_Engine::Snake_Engine() : m_uptime{}
 {
      m_pWindow = std::make_shared<sf::RenderWindow>(sf::VideoMode(600, 600), "Snake!", sf::Style::Titlebar | sf::Style::Close);
-     m_pCurrent_State.reset(new Menu_State(this)); // TODO: not a good idea to pass "this" from ctor afaik
+    
      m_pWindow->setKeyRepeatEnabled(false);
      m_pWindow->setMouseCursorVisible(false);
 
@@ -16,6 +16,7 @@ Snake_Engine::Snake_Engine() : m_uptime{}
 
 void Snake_Engine::Run()
 {
+     m_pCurrent_State.reset(new Menu_State(this)); // moved this here from CTOR move again if there is a better place for it
      // TODO limit the timestep
      while (m_pWindow->isOpen())
      {

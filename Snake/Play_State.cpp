@@ -119,6 +119,10 @@ Play_State::Play_State(IContext* ctx)
 	m_pressAnyKeyText.setOutlineColor(DARK_COLOR);
 	m_pressAnyKeyText.setOutlineThickness(2);
 	// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
 }
 //:::::::::::::::::::: END CTOR BODY::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -317,6 +321,15 @@ void Play_State::UpdateState()
 		// :::::::::::::::::::::::: END APPLE BUSINESS :::::::::::::::::::::::::::::::
 		// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	}
+
+
+	m_debugWindow.update(Debug_Info_Bundle{m_snake.front()});
+
+
+#ifdef DEBUG_OUTPUT
+	std::cout << "Snake(x,y) : " << "(" << m_snake.front().x << ", " << m_snake.front().y << ")" << std::endl;
+#endif // DEBUG_OUTPUT
+
 }
 
 void Play_State::RenderState(sf::RenderWindow& window)

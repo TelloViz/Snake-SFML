@@ -7,9 +7,20 @@
 #include "Snake_Controller.h"
 #include "Snake_Rule_Monitor.h"
 #include "Static_Graphic.h"
+#include "Debug_Window.hpp"
 
 
-#define DEBUG_CONTROLS
+//#define DEBUG_CONTROLS
+//#define DEBUG_OUTPUT
+
+#ifdef DEBUG_CONTROLS
+sf::Keyboard::Key		KILL_CMD{ sf::Keyboard::Key::F12 };
+sf::Keyboard::Key		INC_PTS_CMD{ sf::Keyboard::Key::F11 };
+#endif // DEBUG_CONTROLS
+
+#ifdef DEBUG_OUTPUT
+
+#endif // DEBUG_OUTPUT
 
 
 
@@ -28,6 +39,9 @@ public: // TODO make a state machine class to handle state transitioning. a midd
 	virtual void			RenderState(sf::RenderWindow& window);
 
 private:
+
+	Debug_Window			m_debugWindow;
+
 
 	Snake_Rule_Monitor		m_ruleMonitor;
 	Snake_Controller		m_snkController;
@@ -118,10 +132,8 @@ private:
 	sf::Keyboard::Key		ESC_CMD			{ sf::Keyboard::Key::Escape };
 
 
-#ifdef DEBUG_CONTROLS
-	sf::Keyboard::Key		KILL_CMD			{ sf::Keyboard::Key::F12 };
-	sf::Keyboard::Key		INC_PTS_CMD		{ sf::Keyboard::Key::F11 };
-#endif // DEBUG_CONTROLS
+
+
 
 
 

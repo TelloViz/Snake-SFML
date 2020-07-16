@@ -13,8 +13,6 @@
 
 
 //#define DEBUG_CONTROLS
-//#define DEBUG_OUTPUT
-
 #ifdef DEBUG_CONTROLS
 namespace debug_controls
 {
@@ -22,11 +20,6 @@ namespace debug_controls
 	sf::Keyboard::Key		INC_PTS_CMD{ sf::Keyboard::Key::F11 };
 }
 #endif // DEBUG_CONTROLS
-
-#ifdef DEBUG_OUTPUT
-
-#endif // DEBUG_OUTPUT
-
 
 
 typedef sf::Vector2i Apple_Coord;
@@ -136,12 +129,6 @@ private:
 
 	sf::Keyboard::Key		SELECT_CMD		{ sf::Keyboard::Key::Enter };
 	sf::Keyboard::Key		ESC_CMD			{ sf::Keyboard::Key::Escape };
-
-
-
-
-
-
 
 
 	const sf::Vector2u WINDOW_SIZE;

@@ -333,11 +333,6 @@ void Play_State::UpdateState()
 		m_score,
 		m_ruleMonitor.Num_Apples_Collected()});
 
-
-#ifdef DEBUG_OUTPUT
-	std::cout << "Snake(x,y) : " << "(" << m_snake.front().x << ", " << m_snake.front().y << ")" << std::endl;
-#endif // DEBUG_OUTPUT
-
 }
 
 void Play_State::RenderState(sf::RenderWindow& window)

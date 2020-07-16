@@ -280,18 +280,18 @@ void Play_State::UpdateState()
 			switch (dir)
 			{
 			case Snake_Rule_Monitor::Direction::UP:
-				m_snkController.Teleport_Snake_Head(m_snake, m_snake.front().x, 30);
+				m_snkController.Teleport_Snake_Head(m_snake, m_snake.front().x, 29);
 				break;
 			case Snake_Rule_Monitor::Direction::DOWN:
-				m_snkController.Teleport_Snake_Head(m_snake, m_snake.front().x, -1);
+				m_snkController.Teleport_Snake_Head(m_snake, m_snake.front().x, 0);
 
 				break;
 			case Snake_Rule_Monitor::Direction::LEFT:
-				m_snkController.Teleport_Snake_Head(m_snake, 30, m_snake.front().y);
+				m_snkController.Teleport_Snake_Head(m_snake, 29, m_snake.front().y);
 
 				break;
 			case Snake_Rule_Monitor::Direction::RIGHT:
-				m_snkController.Teleport_Snake_Head(m_snake, -1, m_snake.front().y);
+				m_snkController.Teleport_Snake_Head(m_snake, 0, m_snake.front().y);
 
 				break;
 			}

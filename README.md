@@ -118,16 +118,16 @@ Project Link: [https://github.com/Tello-/Snake-SFML)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Tello-/Snake.svg?style=flat-square
-[contributors-url]: https://github.com/Tello-/Snake/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Tello-/Snake.svg?style=flat-square
-[forks-url]: https://github.com/Tello-/Snake/network/members
-[stars-shield]: https://img.shields.io/github/stars/Tello-/Snake.svg?style=flat-square
-[stars-url]: https://github.com/Tello-/Snake/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Tello-/Snake.svg?style=flat-square
-[issues-url]: https://github.com/Tello-/Snake/issues
-[license-shield]: https://img.shields.io/github/license/Tello-/Snake.svg?style=flat-square
-[license-url]: https://github.com/Tello-/Snake/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Tello-//Snake-SFML.svg?style=flat-square
+[contributors-url]: https://github.com/Tello-//Snake-SFML/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Tello-//Snake-SFML.svg?style=flat-square
+[forks-url]: https://github.com/Tello-//Snake-SFML/network/members
+[stars-shield]: https://img.shields.io/github/stars/Tello-//Snake-SFML.svg?style=flat-square
+[stars-url]: https://github.com/Tello-//Snake-SFML/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Tello-//Snake-SFML.svg?style=flat-square
+[issues-url]: https://github.com/Tello-//Snake-SFML/issues
+[license-shield]: https://img.shields.io/github/license/Tello-//Snake-SFML.svg?style=flat-square
+[license-url]: https://github.com/Tello-//Snake-SFML/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/lollisjosh
 [product-screenshot]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/TitleScreen.JPG

@@ -313,8 +313,12 @@ void Play_State::UpdateState()
 		// **************** Spawn new apple if needed ******************************
 		if (m_bSpawnApple)
 		{
-			m_appleCoord.x = m_distribution(m_generator);
-			m_appleCoord.y = m_distribution(m_generator);
+			do
+			{			
+				m_appleCoord.x = m_distribution(m_generator);
+				m_appleCoord.y = m_distribution(m_generator);
+			} while (!m_cutTail.empty() && std::find(std::begin(m_cutTail), std::end(m_cutTail), m_appleCoord) != m_cutTail.end());
+			
 			m_appleGraphic.setPosition(sf::Vector2f{ m_appleCoord.x * 20.f, m_appleCoord.y * 20.f });
 			m_bSpawnApple = false;
 		}

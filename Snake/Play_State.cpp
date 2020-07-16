@@ -1,6 +1,5 @@
 #include "Play_State.hpp"
-#include "Pause_State.hpp"
-#include "Game_Over_State.hpp"
+
 
 
 Play_State::Play_State(IContext* ctx)
@@ -160,7 +159,7 @@ void Play_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 	
 	if (inputKey == PAUSE_CMD)
 	{
-		RequestStatePushTransition(new Pause_State(m_pContext));
+		RequestPause();
 	}
 	if (inputKey == ESC_CMD)
 	{
@@ -168,11 +167,11 @@ void Play_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 	}
 
 #ifdef DEBUG_CONTROLS
-	if (inputKey == KILL_CMD)
+	if (inputKey == debug_controls::KILL_CMD)
 	{
 		m_ruleMonitor.Decrement_Lives();
 	}
-	if (inputKey == INC_PTS_CMD)
+	if (inputKey == debug_controls::INC_PTS_CMD)
 	{
 		m_score++;
 	}
@@ -188,7 +187,7 @@ void Play_State::UpdateState()
 	{
 		//sf::Time sleepTime = sf::seconds(2.f);
 		//sf::sleep(sleepTime);
-		RequestStateTransition(new Game_Over_State{m_pContext, m_score});
+		RequestGameOver(m_score);
 	}
 
 	m_hudLives.setString(std::to_string(m_ruleMonitor.Lives_Left()));

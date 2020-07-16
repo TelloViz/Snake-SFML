@@ -1,8 +1,12 @@
 #pragma once
-#include <fstream>
-#include <math.h>
+
 #include "IState.hpp"
 #include "Static_Graphic.h"
+
+#include <iostream>
+#include <fstream>
+#include <math.h>
+
 #include <cereal/cereal.hpp>
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/string.hpp>

@@ -1,9 +1,13 @@
 #pragma once
 #include <memory>
 #include <stack>
+#include <iostream>
 #include "SFML/System/Clock.hpp"
 #include "IState.hpp"
 #include "Menu_State.hpp"
+#include "Play_State.hpp"
+#include "Pause_State.hpp"
+#include "Game_Over_State.hpp"
 #include "IContext.hpp"
 
 
@@ -13,6 +17,7 @@ public:
 	Snake_Engine();
 
 	void Run();
+
 	
 
 private: // private methods
@@ -96,6 +101,14 @@ private: // private methods
     ////////////////////////////////////////////////////////////
 	virtual void RequestWindowTranslation(int x_dir, int y_dir);
 
+     virtual void RequestPlayAgain() = 0;
+
+     virtual void RequestPause() = 0;
+
+     virtual void RequestGameOver(int) = 0;
+
+
+
 	virtual sf::VideoMode RequestVideoMode() const {
 		return m_vMode;
 	}
@@ -111,6 +124,8 @@ private: // private data
 	bool m_bShouldTerminate{ false };
 	sf::VideoMode m_vMode{ 600, 600 };
 	sf::Time m_uptime;
+
+     int m_score;
 
 };
 

@@ -1,9 +1,9 @@
 #pragma once
 #include <queue>
 #include <map>
-#include <SFML/Graphics.hpp>
 #include "IContext.hpp"
 #include "ICommand.hpp"
+#include <SFML/Graphics.hpp>
 
 class IState
 {
@@ -29,5 +29,11 @@ protected:
 	virtual void RequestProgramTermination() { m_pContext->RequestProgramTermination(); }
 	virtual void RequestWindowResize(sf::Vector2u size) { m_pContext->RequestWindowResize(size.x, size.y); }
 	virtual void RequestWindowTranslation(int x_dir, int y_dir) { m_pContext->RequestWindowTranslation(x_dir, y_dir); }
+	
+	virtual void RequestPlayAgain() { m_pContext->RequestPlayAgain(); }
+
+	virtual void RequestPause() { m_pContext->RequestPause(); }
+
+	virtual void RequestGameOver(int score) { m_pContext->RequestGameOver(score); }
 	// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 };

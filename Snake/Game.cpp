@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <iostream>
 #include <assert.h>
 
 Snake_Engine::Snake_Engine() : m_uptime{}
@@ -105,4 +104,20 @@ void Snake_Engine::RequestWindowTranslation(int x_dir, int y_dir)
      sf::Vector2i currentPos{ m_pWindow->getPosition() };
      sf::Vector2i newPos{ currentPos.x + x_dir, currentPos.y + y_dir };
      m_pWindow->setPosition(newPos);
+}
+
+void Snake_Engine::RequestPlayAgain()
+{
+     RequestStateTransition(new Play_State{ this });
+}
+
+void Snake_Engine::RequestPause()
+{
+     RequestStatePushTransition(new Pause_State(this));
+}
+
+void Snake_Engine::RequestGameOver(int score)
+{
+     RequestStateTransition(new Game_Over_State{ this, score });
+
 }

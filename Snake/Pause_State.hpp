@@ -1,5 +1,7 @@
 #pragma once
 #include "IState.hpp"
+#include <iostream>
+
 
 class Pause_State :
 	public IState

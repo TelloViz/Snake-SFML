@@ -1,6 +1,6 @@
 #include "Menu_State.hpp"
-#include <iostream>
-#include "Play_State.hpp"
+
+
 
 Menu_State::Menu_State(IContext* ctx) 
 	: IState(ctx),
@@ -44,7 +44,7 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 
 void Menu_State::UpdateState()
 {
-	if (m_bShouldTransistion) { RequestStateTransition(new  Play_State(m_pContext)); } // then signal transition to next state (to playing state in this case)
+	if (m_bShouldTransistion) { RequestPlayAgain(); } // then signal transition to next state (to playing state in this case)
 }
 
 void Menu_State::RenderState(sf::RenderWindow& window)

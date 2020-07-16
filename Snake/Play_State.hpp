@@ -1,9 +1,11 @@
 #pragma once
 #include "IState.hpp"
+
 #include <iostream>
 #include <string>
 #include <random>
 #include <iterator>
+
 #include "Snake_Controller.h"
 #include "Snake_Rule_Monitor.h"
 #include "Static_Graphic.h"
@@ -14,8 +16,11 @@
 //#define DEBUG_OUTPUT
 
 #ifdef DEBUG_CONTROLS
-sf::Keyboard::Key		KILL_CMD{ sf::Keyboard::Key::F12 };
-sf::Keyboard::Key		INC_PTS_CMD{ sf::Keyboard::Key::F11 };
+namespace debug_controls
+{
+	sf::Keyboard::Key		KILL_CMD{ sf::Keyboard::Key::F12 };
+	sf::Keyboard::Key		INC_PTS_CMD{ sf::Keyboard::Key::F11 };
+}
 #endif // DEBUG_CONTROLS
 
 #ifdef DEBUG_OUTPUT
@@ -27,6 +32,7 @@ sf::Keyboard::Key		INC_PTS_CMD{ sf::Keyboard::Key::F11 };
 typedef sf::Vector2i Apple_Coord;
 typedef std::uniform_int_distribution<int> stlDistribution;
 typedef std::vector<Snake_Segment> Cut_Tail_Vector;
+
 
 class Play_State :
 	public IState

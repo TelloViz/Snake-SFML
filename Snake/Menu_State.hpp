@@ -1,6 +1,8 @@
 #pragma once
 #include "IState.hpp"
 #include "Static_Graphic.h"
+#include <iostream>
+
 
 
 class Menu_State :

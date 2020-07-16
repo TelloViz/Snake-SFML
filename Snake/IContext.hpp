@@ -57,4 +57,10 @@ protected:
     ////////////////////////////////////////////////////////////
 	virtual void RequestWindowTranslation(int x_dir, int y_dir) = 0;
 
+     virtual void RequestPlayAgain() {}
+
+     virtual void RequestPause() {}
+
+     virtual void RequestGameOver(int score) {}
+
 };

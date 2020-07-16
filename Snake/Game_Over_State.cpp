@@ -1,6 +1,6 @@
 #include "Game_Over_State.hpp"
-#include "Play_State.hpp"
-#include <iostream>
+//#include "Play_State.hpp"
+
 
 Game_Over_State::Game_Over_State(IContext* ctx, int score)
 	: IState{ctx},
@@ -325,7 +325,7 @@ void Game_Over_State::UpdateState()
 	if (m_bPlayAgain)
 	{
 		encrypt_and_save();
-		RequestStateTransition(new Play_State{ m_pContext });
+		RequestPlayAgain();
 	}
 
 	

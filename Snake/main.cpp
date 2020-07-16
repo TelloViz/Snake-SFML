@@ -1,9 +1,9 @@
-
-
 #include "Game.h"
+#include <Windows.h>
 
 
-int main()
+
+int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszArgument, int nCmdShow)
 {
      Snake_Engine game;
      game.Run();

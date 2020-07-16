@@ -1,5 +1,5 @@
 #include "Pause_State.hpp"
-#include <iostream>
+
 
 Pause_State::Pause_State(IContext* ctx)
 

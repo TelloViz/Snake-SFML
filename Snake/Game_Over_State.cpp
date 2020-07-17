@@ -34,186 +34,202 @@ Game_Over_State::Game_Over_State(IContext* ctx, int score)
 	m_enterInitialsText2Pos{ sf::Vector2f{123.f, 425.f} },
 	m_enterInitialsText3Pos{ sf::Vector2f{195.f, 450.f} }
 {
-
-
 	// init views
 	{ 
-	m_scoreView.setViewport(m_scoreAreaVP);
-	m_headerView.setViewport(m_headerAreaVP);
+		m_scoreView.setViewport(m_scoreAreaVP);
+		m_headerView.setViewport(m_headerAreaVP);
 	}
 
 	// init labels and text
 	{
 		if (!m_gameoverFont.loadFromFile("whitrabt.ttf")) std::cout << "failed to load font" << std::endl; // TODO, definitely remove this from happening every frame yeesh
-		m_finalScoreLabel.setFont(m_gameoverFont);
-		m_finalScoreLabel.setString("Final Score: ");
-		m_finalScoreLabel.setPosition(10.f, 10.f);
-		m_finalScoreLabel.setFillColor(BRIGHT_COLOR);
-		m_finalScoreLabel.setOutlineColor(DARK_COLOR);
-		m_finalScoreLabel.setOutlineThickness(2);
-		// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+		// Screen Text Initialization
+		{	
+			m_finalScoreLabel.setFont(m_gameoverFont);
+			m_finalScoreLabel.setString("Final Score: ");
+			m_finalScoreLabel.setPosition(10.f, 10.f);
+			m_finalScoreLabel.setFillColor(BRIGHT_COLOR);
+			m_finalScoreLabel.setOutlineColor(DARK_COLOR);
+			m_finalScoreLabel.setOutlineThickness(2);
 
-		m_scoreValueString.setFont(m_gameoverFont);
-		m_scoreValueString.setString("-");
-		m_scoreValueString.setPosition(225.f, 10.f);
-		m_scoreValueString.setFillColor(BRIGHT_COLOR);
-		m_scoreValueString.setOutlineColor(DARK_COLOR);
-		m_scoreValueString.setOutlineThickness(2);
+			m_scoreValueString.setFont(m_gameoverFont);
+			m_scoreValueString.setString("-");
+			m_scoreValueString.setPosition(225.f, 10.f);
+			m_scoreValueString.setFillColor(BRIGHT_COLOR);
+			m_scoreValueString.setOutlineColor(DARK_COLOR);
+			m_scoreValueString.setOutlineThickness(2);
 
+			m_firstPlaceLabel.setFont(m_gameoverFont);
+			m_firstPlaceLabel.setString("1st: ");
+			m_firstPlaceLabel.setPosition(m_firstPlaceLabelPos);
+			m_firstPlaceLabel.setFillColor(BRIGHT_COLOR);
+			m_firstPlaceLabel.setOutlineColor(DARK_COLOR);
+			m_firstPlaceLabel.setOutlineThickness(2);
 
-		m_firstPlaceLabel.setFont(m_gameoverFont);
-		m_firstPlaceLabel.setString("1st: ");
-		m_firstPlaceLabel.setPosition(m_firstPlaceLabelPos);
-		m_firstPlaceLabel.setFillColor(BRIGHT_COLOR);
-		m_firstPlaceLabel.setOutlineColor(DARK_COLOR);
-		m_firstPlaceLabel.setOutlineThickness(2);
+			m_secPlaceLabel.setFont(m_gameoverFont);
+			m_secPlaceLabel.setString("2nd: ");
+			m_secPlaceLabel.setPosition(m_secPlaceLabelPos);
+			m_secPlaceLabel.setFillColor(BRIGHT_COLOR);
+			m_secPlaceLabel.setOutlineColor(DARK_COLOR);
+			m_secPlaceLabel.setOutlineThickness(2);
 
-		m_secPlaceLabel.setFont(m_gameoverFont);
-		m_secPlaceLabel.setString("2nd: ");
-		m_secPlaceLabel.setPosition(m_secPlaceLabelPos);
-		m_secPlaceLabel.setFillColor(BRIGHT_COLOR);
-		m_secPlaceLabel.setOutlineColor(DARK_COLOR);
-		m_secPlaceLabel.setOutlineThickness(2);
+			m_thirdPlaceLabel.setFont(m_gameoverFont);
+			m_thirdPlaceLabel.setString("3rd: ");
+			m_thirdPlaceLabel.setPosition(m_thirdPlaceLabelPos);
+			m_thirdPlaceLabel.setFillColor(BRIGHT_COLOR);
+			m_thirdPlaceLabel.setOutlineColor(DARK_COLOR);
+			m_thirdPlaceLabel.setOutlineThickness(2);
 
-		m_thirdPlaceLabel.setFont(m_gameoverFont);
-		m_thirdPlaceLabel.setString("3rd: ");
-		m_thirdPlaceLabel.setPosition(m_thirdPlaceLabelPos);
-		m_thirdPlaceLabel.setFillColor(BRIGHT_COLOR);
-		m_thirdPlaceLabel.setOutlineColor(DARK_COLOR);
-		m_thirdPlaceLabel.setOutlineThickness(2);
+			m_firstScoreText.setFont(m_gameoverFont);
+			m_firstScoreText.setString("-");
+			m_firstScoreText.setPosition(m_firstScoreTextPos);
+			m_firstScoreText.setFillColor(BRIGHT_COLOR);
+			m_firstScoreText.setOutlineColor(DARK_COLOR);
+			m_firstScoreText.setOutlineThickness(2);
 
-		m_firstScoreText.setFont(m_gameoverFont);
-		m_firstScoreText.setString("-");
-		m_firstScoreText.setPosition(m_firstScoreTextPos);
-		m_firstScoreText.setFillColor(BRIGHT_COLOR);
-		m_firstScoreText.setOutlineColor(DARK_COLOR);
-		m_firstScoreText.setOutlineThickness(2);
+			m_secScoreText.setFont(m_gameoverFont);
+			m_secScoreText.setString("-");
+			m_secScoreText.setPosition(m_secScoreTextPos);
+			m_secScoreText.setFillColor(BRIGHT_COLOR);
+			m_secScoreText.setOutlineColor(DARK_COLOR);
+			m_secScoreText.setOutlineThickness(2);
 
-		m_secScoreText.setFont(m_gameoverFont);
-		m_secScoreText.setString("-");
-		m_secScoreText.setPosition(m_secScoreTextPos);
-		m_secScoreText.setFillColor(BRIGHT_COLOR);
-		m_secScoreText.setOutlineColor(DARK_COLOR);
-		m_secScoreText.setOutlineThickness(2);
+			m_thirdScoreText.setFont(m_gameoverFont);
+			m_thirdScoreText.setString("-");
+			m_thirdScoreText.setPosition(m_thirdScoreTextPos);
+			m_thirdScoreText.setFillColor(BRIGHT_COLOR);
+			m_thirdScoreText.setOutlineColor(DARK_COLOR);
+			m_thirdScoreText.setOutlineThickness(2);
 
-		m_thirdScoreText.setFont(m_gameoverFont);
-		m_thirdScoreText.setString("-");
-		m_thirdScoreText.setPosition(m_thirdScoreTextPos);
-		m_thirdScoreText.setFillColor(BRIGHT_COLOR);
-		m_thirdScoreText.setOutlineColor(DARK_COLOR);
-		m_thirdScoreText.setOutlineThickness(2);
+			m_toContinueText.setFont(m_gameoverFont);
+			m_toContinueText.setString("[space] to play again");
+			m_toContinueText.setPosition(m_toContinueTextPos);
+			m_toContinueText.setFillColor(BRIGHT_COLOR);
+			m_toContinueText.setOutlineColor(DARK_COLOR);
+			m_toContinueText.setOutlineThickness(2);
 
+			m_toQuitText.setFont(m_gameoverFont);
+			m_toQuitText.setString("[esc] to quit");
+			m_toQuitText.setPosition(m_toQuitTextPos);
+			m_toQuitText.setFillColor(BRIGHT_COLOR);
+			m_toQuitText.setOutlineColor(DARK_COLOR);
+			m_toQuitText.setOutlineThickness(2);
 
-		m_toContinueText.setFont(m_gameoverFont);
-		m_toContinueText.setString("[space] to play again");
-		m_toContinueText.setPosition(m_toContinueTextPos);
-		m_toContinueText.setFillColor(BRIGHT_COLOR);
-		m_toContinueText.setOutlineColor(DARK_COLOR);
-		m_toContinueText.setOutlineThickness(2);
+			m_firstNameText.setFont(m_gameoverFont);
+			m_firstNameText.setPosition(m_firstNameTextPos);
+			m_firstNameText.setFillColor(BRIGHT_COLOR);
+			m_firstNameText.setOutlineColor(DARK_COLOR);
+			m_firstNameText.setOutlineThickness(2);
 
-		m_toQuitText.setFont(m_gameoverFont);
-		m_toQuitText.setString("[esc] to quit");
-		m_toQuitText.setPosition(m_toQuitTextPos);
-		m_toQuitText.setFillColor(BRIGHT_COLOR);
-		m_toQuitText.setOutlineColor(DARK_COLOR);
-		m_toQuitText.setOutlineThickness(2);
+			m_secNameText.setFont(m_gameoverFont);
+			m_secNameText.setPosition(m_secNameTextPos);
+			m_secNameText.setFillColor(BRIGHT_COLOR);
+			m_secNameText.setOutlineColor(DARK_COLOR);
+			m_secNameText.setOutlineThickness(2);
 
-		m_firstNameText.setFont(m_gameoverFont);
-		m_firstNameText.setPosition(m_firstNameTextPos);
-		m_firstNameText.setFillColor(BRIGHT_COLOR);
-		m_firstNameText.setOutlineColor(DARK_COLOR);
-		m_firstNameText.setOutlineThickness(2);
+			m_thirdNameText.setFont(m_gameoverFont);
+			m_thirdNameText.setPosition(m_thirdNameTextPos);
+			m_thirdNameText.setFillColor(BRIGHT_COLOR);
+			m_thirdNameText.setOutlineColor(DARK_COLOR);
+			m_thirdNameText.setOutlineThickness(2);
 
-		m_secNameText.setFont(m_gameoverFont);
-		m_secNameText.setPosition(m_secNameTextPos);
-		m_secNameText.setFillColor(BRIGHT_COLOR);
-		m_secNameText.setOutlineColor(DARK_COLOR);
-		m_secNameText.setOutlineThickness(2);
+			m_enterInitialsText1.setFont(m_gameoverFont);
+			m_enterInitialsText1.setCharacterSize(20);
+			m_enterInitialsText1.setString("[UP][DOWN] : Cycle Letters");
+			m_enterInitialsText1.setPosition(m_enterInitialsText1Pos);
+			m_enterInitialsText1.setFillColor(BRIGHT_COLOR);
+			m_enterInitialsText1.setOutlineColor(DARK_COLOR);
+			m_enterInitialsText1.setOutlineThickness(2);
 
-		m_thirdNameText.setFont(m_gameoverFont);
-		m_thirdNameText.setPosition(m_thirdNameTextPos);
-		m_thirdNameText.setFillColor(BRIGHT_COLOR);
-		m_thirdNameText.setOutlineColor(DARK_COLOR);
-		m_thirdNameText.setOutlineThickness(2);
+			m_enterInitialsText2.setFont(m_gameoverFont);
+			m_enterInitialsText2.setCharacterSize(20);
+			m_enterInitialsText2.setString("[LEFT][RIGHT] : Cycle Initial");
+			m_enterInitialsText2.setPosition(m_enterInitialsText2Pos);
+			m_enterInitialsText2.setFillColor(BRIGHT_COLOR);
+			m_enterInitialsText2.setOutlineColor(DARK_COLOR);
+			m_enterInitialsText2.setOutlineThickness(2);
 
-		m_enterInitialsText1.setFont(m_gameoverFont);
-		m_enterInitialsText1.setCharacterSize(20);
-		m_enterInitialsText1.setString("[UP][DOWN] : Cycle Letters");
-		m_enterInitialsText1.setPosition(m_enterInitialsText1Pos);
-		m_enterInitialsText1.setFillColor(BRIGHT_COLOR);
-		m_enterInitialsText1.setOutlineColor(DARK_COLOR);
-		m_enterInitialsText1.setOutlineThickness(2);
-
-		m_enterInitialsText2.setFont(m_gameoverFont);
-		m_enterInitialsText2.setCharacterSize(20);
-		m_enterInitialsText2.setString("[LEFT][RIGHT] : Cycle Initial");
-		m_enterInitialsText2.setPosition(m_enterInitialsText2Pos);
-		m_enterInitialsText2.setFillColor(BRIGHT_COLOR);
-		m_enterInitialsText2.setOutlineColor(DARK_COLOR);
-		m_enterInitialsText2.setOutlineThickness(2);
-
-		m_enterInitialsText3.setFont(m_gameoverFont);
-		m_enterInitialsText3.setCharacterSize(20);
-		m_enterInitialsText3.setString("[ENTER] : Finish");
-		m_enterInitialsText3.setPosition(m_enterInitialsText3Pos);
-		m_enterInitialsText3.setFillColor(BRIGHT_COLOR);
-		m_enterInitialsText3.setOutlineColor(DARK_COLOR);
-		m_enterInitialsText3.setOutlineThickness(2);
+			m_enterInitialsText3.setFont(m_gameoverFont);
+			m_enterInitialsText3.setCharacterSize(20);
+			m_enterInitialsText3.setString("[ENTER] : Finish");
+			m_enterInitialsText3.setPosition(m_enterInitialsText3Pos);
+			m_enterInitialsText3.setFillColor(BRIGHT_COLOR);
+			m_enterInitialsText3.setOutlineColor(DARK_COLOR);
+			m_enterInitialsText3.setOutlineThickness(2);
+		}
 	}
 	
 	// load and decrypt save data
 	{
 		load_and_decrypt();
-		m_firstNameText.setString(m_firstNameString);
-		m_secNameText.setString(m_secNameString);
-		m_thirdNameText.setString(m_thirdNameString);
+		
 	}
 	
 	m_scoreDisplayGraphic.setPosition(m_scoreDisplayGraphicPos);
 
-	//if (m_score > m_first)
-	//{
-	//	m_third = m_second;
-	//	m_second = m_first;
-	//	m_first = m_score;
-	//	m_bInitialsNeeded = true;
-	//	m_rankToReplace = FIRST;
-	//	m_pRankToEdit = m_firstInitials;
-
-	//	m_secNameString = m_firstNameString;
-
-	//	m_thirdNameString = m_secNameString;
-
-
-
-	//}
-	//else if (m_score > m_second)
-	//{
-	//	m_third = m_second;
-	//	m_thirdNameText = m_secNameText;
-	//	m_second = m_score;
-	//	m_bInitialsNeeded = true;
-	//	//clearInitials(SECOND);
-	//	m_rankToReplace = SECOND;
-	//	m_pRankToEdit = m_secInitials;
-
-	//	m_thirdNameString = m_secNameString;
-	//}
-	//else if (m_score > m_third)
-	//{
-	//	m_third = m_score;
-	//	m_bInitialsNeeded = true;
-	//	//clearInitials(THIRD);
-	//	m_rankToReplace = THIRD;
-	//	m_pRankToEdit = m_thirdInitials;
-	//}
-
-
 	m_scoreValueString.setString(std::to_string(m_score));
+
+	m_firstNameText.setString(m_firstNameString);
+	m_secNameText.setString(m_secNameString);
+	m_thirdNameText.setString(m_thirdNameString);
+
+
+
+	if (score > m_first)
+	{		
+		m_rankToReplace = FIRST;
+		m_pRankToEdit = m_firstInitials;
+		m_pRankTextToEdit = &m_firstNameText;
+
+		m_third = m_second;
+		m_second = m_first;
+		m_first = score;
+
+		m_thirdNameString = m_secNameString;
+		m_secNameString = m_firstNameString;
+
+		m_bInitialsNeeded = true;
+		
+
+		
+	}
+	else if (score > m_second)
+	{
+		
+		m_rankToReplace = SECOND;
+		m_pRankToEdit = m_secInitials;
+		m_pRankTextToEdit = &m_secNameText;
+
+		m_third = m_second;
+		m_second = score;
+		// m_first is loaded by load/decrypt
+
+		m_thirdNameString = m_secNameString;
+
+		m_bInitialsNeeded = true;
+	}
+	else if (score > m_third)
+	{
+		
+		m_rankToReplace = THIRD;
+		m_pRankToEdit = m_thirdInitials;
+		m_pRankTextToEdit = &m_thirdNameText;
+
+		m_third = score;
+		m_bInitialsNeeded = true;
+	}
+
 	m_firstScoreText.setString(std::to_string(m_first));
 	m_secScoreText.setString(std::to_string(m_second));
 	m_thirdScoreText.setString(std::to_string(m_third));
-} // ::: END CTOR:::::
+
+	m_firstNameText.setString(m_firstNameString);
+	m_secNameText.setString(m_secNameString);
+	m_thirdNameText.setString(m_thirdNameString);
+
+	clearInitials(m_rankToReplace);
+
+} // ::::::::::::::::::::::: END CTOR ::::::::::::::::::::::::::::::::
 
 Game_Over_State::~Game_Over_State()
 {
@@ -235,6 +251,7 @@ void Game_Over_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueu
 			m_bTerminate = true;
 		}
 	}
+
 	if (!m_bInitialsNeeded && inputKey == CONT_CMD)
 	{
 		m_bPlayAgain = true;
@@ -247,7 +264,6 @@ void Game_Over_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueu
 	else if (m_bInitialsNeeded && inputKey == DOWN_CMD)
 	{
 		decrementSlotValue(m_pRankToEdit[m_currentSlot]);
-
 	}
 	else if (m_bInitialsNeeded && inputKey == LEFT_CMD)
 	{
@@ -263,54 +279,59 @@ void Game_Over_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueu
 		m_bInitialsNeeded = false;
 	}
 
-
 	inputQueue.pop(); // clear out the processed input
 }
 
 void Game_Over_State::UpdateState()
 {
-
 	if (m_bTerminate)
 	{
 		encrypt_and_save();
 		RequestProgramTermination();
 	}
-	else if (m_bPlayAgain)
+	if (m_bPlayAgain)
 	{
 		encrypt_and_save();
 		RequestPlayAgain();
 	}
-
+	if (m_bInitialsNeeded)
+	{
+		m_pRankTextToEdit->setString(m_pRankToEdit);
+	}
 	
 }
 
 void Game_Over_State::RenderState(sf::RenderWindow& window)
-{
-	
+{	
 	window.clear(BRIGHT_COLOR);
 
 	// **********Draw Stuff in Header**************
 	window.setView(m_headerView);
+
 	window.draw(m_headerOverlay);
 	window.draw(m_finalScoreLabel);
-	window.draw(m_scoreValueString);
-    
+	window.draw(m_scoreValueString);    
 	//::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 	// ***********Draw Stuff in Play Area*************
 	window.setView(m_scoreView);
 	
 	window.draw(m_gridOverlay);
 	window.draw(m_scoreDisplayGraphic);
+
 	window.draw(m_firstPlaceLabel);
 	window.draw(m_firstScoreText);
 	window.draw(m_firstNameText);
+
 	window.draw(m_secPlaceLabel);
 	window.draw(m_secScoreText);
 	window.draw(m_secNameText);
+
 	window.draw(m_thirdPlaceLabel);
 	window.draw(m_thirdScoreText);
 	window.draw(m_thirdNameText);
+
 	if (m_bInitialsNeeded)
 	{
 		window.draw(m_enterInitialsText1);
@@ -322,6 +343,7 @@ void Game_Over_State::RenderState(sf::RenderWindow& window)
 		window.draw(m_toContinueText);
 		window.draw(m_toQuitText);
 	}
+	
 	window.display();
 	m_bFirstRender = false;
 }
@@ -358,25 +380,40 @@ void Game_Over_State::load_and_decrypt()
 }
 
 void Game_Over_State::clearInitials(Game_Over_State::Rank rank)
-{
-	
+{	
 	switch (rank)
 	{
 	case Game_Over_State::FIRST:
 		m_firstNameText.setString("___");
+
+		m_firstInitials[0] = '_';
+		m_firstInitials[1] = '_';
+		m_firstInitials[2] = '_';
+		m_firstInitials[3] = 0;
+
 		m_currentSlot = SLOT1;
 		break;
 	case Game_Over_State::SECOND:
 		m_secNameText.setString("___");
+
+		m_secInitials[0] = '_';
+		m_secInitials[1] = '_';
+		m_secInitials[2] = '_';
+		m_secInitials[3] = 0;
+
 		m_currentSlot = SLOT2;
 		break;
 	case Game_Over_State::THIRD:
 		m_thirdNameText.setString("___");
+
+		m_thirdInitials[0] = '_';
+		m_thirdInitials[1] = '_';
+		m_thirdInitials[2] = '_';
+		m_thirdInitials[3] = 0;
+
 		m_currentSlot = SLOT3;
 		break;
-	default:
-		break;
-	}
+	};
 }
 
 void Game_Over_State::incrementSlot(Letter_Slot& slot)

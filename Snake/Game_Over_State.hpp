@@ -45,9 +45,9 @@ private: // private methods
 
 private:
 	int				m_score;
-	int				m_first{ 7 };
-	int				m_second{ 5 };
-	int				m_third{ 1 };
+	int				m_first{  };
+	int				m_second{  };
+	int				m_third{  };
 
 	bool					m_bInitialsNeeded;
 	Rank					m_rankToReplace;
@@ -103,6 +103,9 @@ private:
 	sf::Text				m_enterInitialsText3;
 	sf::Vector2f			m_enterInitialsText3Pos;
 
+	sf::Text*				m_pRankTextToEdit;
+
+
 	Static_Graphic			m_gameoverGraphic;
 	sf::Vector2f			m_gameoverGraphicPos;
 
@@ -136,10 +139,12 @@ private:
 	sf::Keyboard::Key		RIGHT_CMD{ sf::Keyboard::Key::Right };
 	sf::Keyboard::Key		CONFIRM_CMD{ sf::Keyboard::Key::Enter };
 
-	char					m_firstInitials[4] = {'_', '_', '_', 0};
-	char					m_secInitials[4] = { '_', '_', '_', 0 };
+	char					m_firstInitials[4] = { '_', '_', '_', 0 };
+	char					m_secInitials[4]   = { '_', '_', '_', 0 };
 	char					m_thirdInitials[4] = { '_', '_', '_', 0 };
 	char*				m_pRankToEdit;
+
+	char					m_initial;
 
 	enum Letter_Slot{ SLOT1 = 0, SLOT2, SLOT3};
 	Letter_Slot			m_currentSlot{ SLOT1 };

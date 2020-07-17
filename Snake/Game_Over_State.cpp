@@ -171,42 +171,42 @@ Game_Over_State::Game_Over_State(IContext* ctx, int score)
 	
 	m_scoreDisplayGraphic.setPosition(m_scoreDisplayGraphicPos);
 
-	if (m_score > m_first)
-	{
-		m_third = m_second;
-		m_second = m_first;
-		m_first = m_score;
-		m_bInitialsNeeded = true;
-		m_rankToReplace = FIRST;
-		m_pRankToEdit = m_firstInitials;
+	//if (m_score > m_first)
+	//{
+	//	m_third = m_second;
+	//	m_second = m_first;
+	//	m_first = m_score;
+	//	m_bInitialsNeeded = true;
+	//	m_rankToReplace = FIRST;
+	//	m_pRankToEdit = m_firstInitials;
 
-		m_secNameString = m_firstNameString;
+	//	m_secNameString = m_firstNameString;
 
-		m_thirdNameString = m_secNameString;
+	//	m_thirdNameString = m_secNameString;
 
 
 
-	}
-	else if (m_score > m_second)
-	{
-		m_third = m_second;
-		m_thirdNameText = m_secNameText;
-		m_second = m_score;
-		m_bInitialsNeeded = true;
-		//clearInitials(SECOND);
-		m_rankToReplace = SECOND;
-		m_pRankToEdit = m_secInitials;
+	//}
+	//else if (m_score > m_second)
+	//{
+	//	m_third = m_second;
+	//	m_thirdNameText = m_secNameText;
+	//	m_second = m_score;
+	//	m_bInitialsNeeded = true;
+	//	//clearInitials(SECOND);
+	//	m_rankToReplace = SECOND;
+	//	m_pRankToEdit = m_secInitials;
 
-		m_thirdNameString = m_secNameString;
-	}
-	else if (m_score > m_third)
-	{
-		m_third = m_score;
-		m_bInitialsNeeded = true;
-		//clearInitials(THIRD);
-		m_rankToReplace = THIRD;
-		m_pRankToEdit = m_thirdInitials;
-	}
+	//	m_thirdNameString = m_secNameString;
+	//}
+	//else if (m_score > m_third)
+	//{
+	//	m_third = m_score;
+	//	m_bInitialsNeeded = true;
+	//	//clearInitials(THIRD);
+	//	m_rankToReplace = THIRD;
+	//	m_pRankToEdit = m_thirdInitials;
+	//}
 
 
 	m_scoreValueString.setString(std::to_string(m_score));
@@ -232,8 +232,7 @@ void Game_Over_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueu
 		// TODO: Instead, set a flag signaling the desire to quit, we can then intercept for a "do you really want to"
 		if (!m_bInitialsNeeded)
 		{
-			encrypt_and_save();
-			RequestProgramTermination();
+			m_bTerminate = true;
 		}
 	}
 	if (!m_bInitialsNeeded && inputKey == CONT_CMD)
@@ -269,60 +268,14 @@ void Game_Over_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueu
 }
 
 void Game_Over_State::UpdateState()
-{		
+{
 
-	if (m_bInitialsNeeded)
+	if (m_bTerminate)
 	{
-		switch (m_rankToReplace)
-		{
-		case Game_Over_State::FIRST:
-			if (m_bFirstUpdate)
-			{
-				m_secNameString = m_firstNameString;
-				m_secNameText.setString(m_secNameString);
-				m_thirdNameString = m_secNameString;
-				m_thirdNameText.setString(m_thirdNameString);
-				m_firstNameString = { m_firstInitials };
-				m_firstNameText.setString(m_firstNameString);
-			}
-			else
-			{
-				m_firstNameString = m_firstInitials;
-				m_firstNameText.setString(m_firstNameString);
-			}
-			break;
-
-
-		case Game_Over_State::SECOND:
-			if (m_bFirstUpdate)
-			{
-				m_thirdNameString = m_secNameString;
-				m_thirdNameText.setString(m_thirdNameString);
-				m_secNameString = { m_secInitials };
-				m_secNameText.setString(m_secNameString);
-			}
-			else
-			{
-				m_secNameString = m_secInitials;
-				m_secNameText.setString(m_secNameString);
-			}
-			break;
-		case Game_Over_State::THIRD:
-			if (m_bFirstUpdate)
-			{
-				m_thirdNameString = { m_thirdInitials };
-				m_thirdNameText.setString(m_thirdNameString);
-			}
-			else
-			{
-				m_thirdNameString = m_thirdInitials;
-				m_thirdNameText.setString(m_thirdNameString);
-			}
-			break;
-		}
+		encrypt_and_save();
+		RequestProgramTermination();
 	}
-
-	if (m_bPlayAgain)
+	else if (m_bPlayAgain)
 	{
 		encrypt_and_save();
 		RequestPlayAgain();
@@ -346,10 +299,7 @@ void Game_Over_State::RenderState(sf::RenderWindow& window)
 
 	// ***********Draw Stuff in Play Area*************
 	window.setView(m_scoreView);
-	if (m_bFirstRender)
-	{
-		//m_scoreDisplayGraphic.setPosition(m_scoreDisplayGraphicPos);
-	}
+	
 	window.draw(m_gridOverlay);
 	window.draw(m_scoreDisplayGraphic);
 	window.draw(m_firstPlaceLabel);

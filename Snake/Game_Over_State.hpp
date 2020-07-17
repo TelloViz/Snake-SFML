@@ -116,6 +116,7 @@ private:
 	bool					m_bFirstRender{ true };
 	bool					m_bFirstUpdate{ true };
 	bool					m_bPlayAgain{ false };
+	bool					m_bTerminate{ false };
 
 	sf::FloatRect			m_scoreArea;
 	sf::FloatRect			m_headerArea;

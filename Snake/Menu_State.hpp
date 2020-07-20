@@ -15,7 +15,9 @@ public: // TODO make a state machine class to handle state transitioning. a midd
 	virtual void UpdateState();
 	virtual void RenderState(sf::RenderWindow& window);
 
-
+private: // private methods
+	enum Direction { UP, DOWN };
+	void cycleActiveSelection(Direction dir);
 
 private:
 	bool m_bShouldTransistion{ false };
@@ -29,6 +31,10 @@ private:
 	sf::RectangleShape m_background;
 	Static_Graphic m_logoGraphic;
 	Static_Graphic m_borderGraphic;
+	Static_Graphic m_selectionBorder;
+
+	sf::Vector2f m_selectionBorderPos{ 390.f, 300.f };
+
 	sf::Font m_menuFont;
 
 
@@ -36,6 +42,14 @@ private:
 	sf::Text m_startText;
 	sf::Text m_optionsText;
 	sf::Text m_quitText;
+
+	sf::Text* m_pActiveText;
+
+	sf::Vector2f m_menuTextPos{ 95.f, 500.f };
+	sf::Vector2f m_startTextPos{ 250.f, 325.f };
+	sf::Vector2f m_optionsTextPos{235.f, 375.f};
+	sf::Vector2f m_quitTextPos{ 250.f, 425.f };
+
 
 	
 
@@ -47,8 +61,8 @@ private:
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-	sf::Vector2<sf::Color> m_idleText{BRIGHT_COLOR, DARK_COLOR};
-	sf::Vector2<sf::Color> m_activeText{DARK_COLOR, BRIGHT_COLOR};
+	sf::Vector2<sf::Color> m_idleTextColor{BRIGHT_COLOR, DARK_COLOR};
+	sf::Vector2<sf::Color> m_ActiveTextColor{MID_COLOR, DARK_COLOR};
 
 
 	const sf::Vector2u WINDOW_SIZE;

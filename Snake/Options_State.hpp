@@ -14,6 +14,19 @@ public:
 	virtual void RenderState(sf::RenderWindow& window);
 private:
 
+	sf::Font m_menuFont;
+
+	sf::Text m_resetScoresText;
+	sf::Text m_backText;
+
+	sf::Vector2f m_resetScoresTextPos{};
+	sf::Vector2f m_backTextsPos{};
+
+
+	const sf::Keyboard::Key UP_CMD{ sf::Keyboard::Key::Up };
+	const sf::Keyboard::Key DOWN_CMD{ sf::Keyboard::Key::Down };
+	const sf::Keyboard::Key SELECT_CMD{ sf::Keyboard::Key::Enter };
+
 	// TODO These are also used in other states. Need to centralize this information. 
 	const sf::Color DARK_COLOR{ 15, 56, 15 };
 	const sf::Color MID_COLOR{ 48, 98, 48 };

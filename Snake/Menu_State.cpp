@@ -58,8 +58,9 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 	if (inputQueue.empty()) return;	
 
 	auto inputKey = inputQueue.front();
-	if (inputQueue.front() == ESC_CMD) RequestProgramTermination();
-	else if (inputQueue.front() == TRANSITION_CMD) m_bShouldTransistion = true;
+	if (inputKey == ESC_CMD) RequestProgramTermination();
+	
+	if (inputKey == TRANSITION_CMD) m_bShouldTransistion = true;
 
 
 	if (inputKey == UP_CMD)
@@ -72,6 +73,25 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 		cycleActiveSelection(DOWN);
 	}
 
+	if (inputKey == SELECT_CMD)
+	{
+		m_bShouldTransistion = true;
+		if (m_pActiveText == &m_startText)
+		{
+			m_transitionTo = PLAY;
+		}
+		else if (m_pActiveText == &m_optionsText)
+		{
+			m_transitionTo = OPTIONS;
+
+		}
+		else if (m_pActiveText == &m_quitText)
+		{
+			m_transitionTo = QUIT;
+
+		}
+	}
+
 
 
 	inputQueue.pop();
@@ -81,7 +101,20 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 
 void Menu_State::UpdateState()
 {
-	if (m_bShouldTransistion) { RequestPlayAgain(); } // then signal transition to next state (to playing state in this case)
+	if (m_bShouldTransistion) 
+	{
+		switch (m_transitionTo)
+		{
+		case Menu_State::PLAY:
+			RequestPlayAgain();
+			break;
+		case Menu_State::OPTIONS:
+			break;
+		case Menu_State::QUIT:
+			RequestProgramTermination();
+			break;
+		}
+	} 
 }
 
 void Menu_State::RenderState(sf::RenderWindow& window)

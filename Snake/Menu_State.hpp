@@ -21,6 +21,9 @@ private: // private methods
 
 private:
 	bool m_bShouldTransistion{ false };
+	enum Transition_To{NONE, PLAY, OPTIONS, QUIT} m_transitionTo;
+
+
 	const sf::Keyboard::Key TRANSITION_CMD{ sf::Keyboard::Key::Space };
 	const sf::Keyboard::Key ESC_CMD{ sf::Keyboard::Key::Escape };
 	const sf::Keyboard::Key UP_CMD{ sf::Keyboard::Key::Up };

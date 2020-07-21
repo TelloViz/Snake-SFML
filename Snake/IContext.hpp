@@ -65,4 +65,7 @@ protected:
 
      virtual void RequestOptions() {}
 
+     virtual void RequestMute() {}
+     virtual bool RequestMuteStatus() { return false; }
+
 };

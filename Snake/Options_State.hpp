@@ -24,10 +24,12 @@ private:
 	sf::Font m_menuFont;
 
 	sf::Text m_resetScoresText;
+	sf::Text m_muteText;
 	sf::Text m_backText;
 
-	sf::Vector2f m_resetScoresTextPos{175.f, 200.f};
-	sf::Vector2f m_backTextsPos{235.f, 300.f};
+	sf::Vector2f m_resetScoresTextPos{ 175.f, 200.f };
+	sf::Vector2f m_muteTextPos{235.f, 300.f};
+	sf::Vector2f m_backTextPos{235.f, 400.f};
 
 
 	sf::Text* m_pActiveText;
@@ -38,6 +40,8 @@ private:
 
 	sf::Sound m_cycleSound;
 	sf::Sound m_selectionSound;
+
+	//bool m_bMute{ false };
 
 	const sf::Keyboard::Key UP_CMD{ sf::Keyboard::Key::Up };
 	const sf::Keyboard::Key DOWN_CMD{ sf::Keyboard::Key::Down };

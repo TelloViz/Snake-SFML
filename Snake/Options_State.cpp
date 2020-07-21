@@ -12,9 +12,16 @@ Options_State::Options_State(IContext* ctx) : IState{ctx}, m_pActiveText{&m_rese
 	m_resetScoresText.setOutlineColor(m_idleTextColor.y);
 	m_resetScoresText.setOutlineThickness(2);
 
+	m_muteText.setFont(m_menuFont);
+	m_muteText.setString("un/mute");
+	m_muteText.setPosition(m_muteTextPos);
+	m_muteText.setFillColor(m_idleTextColor.x);
+	m_muteText.setOutlineColor(m_idleTextColor.y);
+	m_muteText.setOutlineThickness(2);
+
 	m_backText.setFont(m_menuFont);
 	m_backText.setString("back");
-	m_backText.setPosition(m_backTextsPos);
+	m_backText.setPosition(m_backTextPos);
 	m_backText.setFillColor(m_idleTextColor.x);
 	m_backText.setOutlineColor(m_idleTextColor.y);
 	m_backText.setOutlineThickness(2);
@@ -41,13 +48,13 @@ void Options_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 
 	if (inputKey == UP_CMD)
 	{
-		m_cycleSound.play();
+		if (!RequestMuteStatus()) m_cycleSound.play();
 		cycleActiveSelection(UP);
 	}
 
 	if (inputKey == DOWN_CMD)
 	{
-		m_cycleSound.play();
+		if (!RequestMuteStatus()) m_cycleSound.play();
 		cycleActiveSelection(DOWN);
 	}
 
@@ -55,9 +62,14 @@ void Options_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 	{
 		if (m_pActiveText == &m_backText)
 		{
-			m_selectionSound.play();
+			if(!RequestMuteStatus()) m_selectionSound.play();
 			sf::sleep(sf::seconds(1));
 			RequestStatePopTransition();
+		}
+		else if (m_pActiveText == &m_muteText)
+		{
+			if (!RequestMuteStatus()) m_selectionSound.play();
+			RequestMute();
 		}
 
 	}
@@ -73,6 +85,7 @@ void Options_State::RenderState(sf::RenderWindow& window)
 {
 	window.clear(BRIGHT_COLOR);
 	window.draw(m_resetScoresText);
+	window.draw(m_muteText);
 	window.draw(m_backText);
 	window.display();
 }
@@ -95,21 +108,37 @@ void Options_State::cycleActiveSelection(Direction dir)
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 
 		}
-		else if (m_pActiveText == &m_backText)
+		else if (m_pActiveText == &m_muteText)
 		{
 			m_pActiveText = &m_resetScoresText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
-		}		
+		}
+		else if (m_pActiveText == &m_backText)
+		{
+			m_pActiveText = &m_muteText;
+			m_pActiveText->setFillColor(m_ActiveTextColor.x);
+			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
+		}
+		else if (m_pActiveText == &m_muteText)
+		{
+
+		}
 		break;
 	case Options_State::DOWN:
 
 		if (m_pActiveText == &m_resetScoresText)
 		{
-			m_pActiveText = &m_backText;
+			m_pActiveText = &m_muteText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 
+		}
+		else if (m_pActiveText == &m_muteText)
+		{
+			m_pActiveText = &m_backText;
+			m_pActiveText->setFillColor(m_ActiveTextColor.x);
+			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 		}
 		else if (m_pActiveText == &m_backText)
 		{

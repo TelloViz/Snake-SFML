@@ -70,19 +70,19 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 	
 	if (inputKey == UP_CMD)
 	{
-		m_cycleSound.play();
+		if (!RequestMuteStatus()) m_cycleSound.play();
 		cycleActiveSelection(UP);
 	}
 
 	if (inputKey == DOWN_CMD)
 	{
-		m_cycleSound.play();
+		if (!RequestMuteStatus()) m_cycleSound.play();
 		cycleActiveSelection(DOWN);
 	}
 
 	if (inputKey == SELECT_CMD)
 	{
-		m_selectionSound.play();
+		if (!RequestMuteStatus()) m_selectionSound.play();
 		sf::sleep(sf::seconds(1));
 		m_bShouldTransistion = true;
 		if (m_pActiveText == &m_startText)

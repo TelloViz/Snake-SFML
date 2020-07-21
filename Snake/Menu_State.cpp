@@ -115,6 +115,7 @@ void Menu_State::UpdateState()
 			RequestPlayAgain();
 			break;
 		case Menu_State::OPTIONS:
+			RequestOptions();
 			break;
 		case Menu_State::QUIT:
 			RequestProgramTermination();

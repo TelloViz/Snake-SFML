@@ -107,6 +107,8 @@ private: // private methods
 
      virtual void RequestGameOver(int);
 
+     virtual void RequestOptions();
+
 
 
 	virtual sf::VideoMode RequestVideoMode() const {

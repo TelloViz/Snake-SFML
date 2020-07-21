@@ -63,4 +63,6 @@ protected:
 
      virtual void RequestGameOver(int score) {}
 
+     virtual void RequestOptions() {}
+
 };

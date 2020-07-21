@@ -61,7 +61,6 @@ private:
 	const sf::Color BRIGHT_COLOR{ 155, 188, 15 };
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 	sf::Vector2<sf::Color> m_idleTextColor{BRIGHT_COLOR, DARK_COLOR};
 	sf::Vector2<sf::Color> m_ActiveTextColor{MID_COLOR, DARK_COLOR};
 

@@ -24,8 +24,6 @@ private:
 	enum Transition_To{NONE, PLAY, OPTIONS, QUIT} m_transitionTo;
 
 
-	const sf::Keyboard::Key TRANSITION_CMD{ sf::Keyboard::Key::Space };
-	const sf::Keyboard::Key ESC_CMD{ sf::Keyboard::Key::Escape };
 	const sf::Keyboard::Key UP_CMD{ sf::Keyboard::Key::Up };
 	const sf::Keyboard::Key DOWN_CMD{ sf::Keyboard::Key::Down };
 	const sf::Keyboard::Key SELECT_CMD{ sf::Keyboard::Key::Enter };

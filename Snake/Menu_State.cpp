@@ -58,11 +58,7 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 	if (inputQueue.empty()) return;	
 
 	auto inputKey = inputQueue.front();
-	if (inputKey == ESC_CMD) RequestProgramTermination();
 	
-	if (inputKey == TRANSITION_CMD) m_bShouldTransistion = true;
-
-
 	if (inputKey == UP_CMD)
 	{
 		cycleActiveSelection(UP);

@@ -1,7 +1,7 @@
 #include "Options_State.hpp"
 #include <iostream>
 
-Options_State::Options_State(IContext* ctx) : IState{ctx}
+Options_State::Options_State(IContext* ctx) : IState{ctx}, m_pActiveText{&m_resetScoresText}
 {
 	if (!m_menuFont.loadFromFile("whitrabt.ttf")) std::cout << "failed to load font" << std::endl; // TODO, definitely remove this from happening every frame yeesh
 
@@ -27,6 +27,9 @@ Options_State::Options_State(IContext* ctx) : IState{ctx}
 
 	m_cycleSound.setLoop(false);
 	m_selectionSound.setLoop(false);
+
+	m_pActiveText->setFillColor(m_ActiveTextColor.x);
+	m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 }
 
 void Options_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
@@ -39,16 +42,24 @@ void Options_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 	if (inputKey == UP_CMD)
 	{
 		m_cycleSound.play();
+		cycleActiveSelection(UP);
 	}
 
 	if (inputKey == DOWN_CMD)
 	{
 		m_cycleSound.play();
+		cycleActiveSelection(DOWN);
 	}
 
 	if (inputKey == SELECT_CMD)
 	{
-		//RequestStatePopTransition(); if select "back"
+		if (m_pActiveText == &m_backText)
+		{
+			m_selectionSound.play();
+			sf::sleep(sf::seconds(1));
+			RequestStatePopTransition();
+		}
+
 	}
 
 	inputQueue.pop();
@@ -60,6 +71,10 @@ void Options_State::UpdateState()
 
 void Options_State::RenderState(sf::RenderWindow& window)
 {
+	window.clear(BRIGHT_COLOR);
+	window.draw(m_resetScoresText);
+	window.draw(m_backText);
+	window.display();
 }
 
 void Options_State::cycleActiveSelection(Direction dir)
@@ -70,47 +85,35 @@ void Options_State::cycleActiveSelection(Direction dir)
 
 	switch (dir)
 	{
-	case Menu_State::UP:
+	case Options_State::UP:
 
 
-		if (m_pActiveText == &m_startText)
+		if (m_pActiveText == &m_resetScoresText)
 		{
-			m_pActiveText = &m_quitText;
+			m_pActiveText = &m_backText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 
 		}
-		else if (m_pActiveText == &m_optionsText)
+		else if (m_pActiveText == &m_backText)
 		{
-			m_pActiveText = &m_startText;
+			m_pActiveText = &m_resetScoresText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
-		}
-		else if (m_pActiveText == &m_quitText)
-		{
-			m_pActiveText = &m_optionsText;
-			m_pActiveText->setFillColor(m_ActiveTextColor.x);
-			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
-		}
+		}		
 		break;
-	case Menu_State::DOWN:
+	case Options_State::DOWN:
 
-		if (m_pActiveText == &m_startText)
+		if (m_pActiveText == &m_resetScoresText)
 		{
-			m_pActiveText = &m_optionsText;
+			m_pActiveText = &m_backText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 
 		}
-		else if (m_pActiveText == &m_optionsText)
+		else if (m_pActiveText == &m_backText)
 		{
-			m_pActiveText = &m_quitText;
-			m_pActiveText->setFillColor(m_ActiveTextColor.x);
-			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
-		}
-		else if (m_pActiveText == &m_quitText)
-		{
-			m_pActiveText = &m_startText;
+			m_pActiveText = &m_resetScoresText;
 			m_pActiveText->setFillColor(m_ActiveTextColor.x);
 			m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 		}

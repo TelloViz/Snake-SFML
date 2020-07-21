@@ -121,6 +121,7 @@ void Menu_State::UpdateState()
 			RequestProgramTermination();
 			break;
 		}
+		m_bShouldTransistion = false;
 	} 
 }
 
@@ -137,7 +138,7 @@ void Menu_State::RenderState(sf::RenderWindow& window)
 	window.display();
 }
 
-void Options_State::cycleActiveSelection(Direction dir)
+void Menu_State::cycleActiveSelection(Direction dir)
 {
 
 	m_pActiveText->setFillColor(m_idleTextColor.x);

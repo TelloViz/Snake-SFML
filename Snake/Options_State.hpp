@@ -26,8 +26,8 @@ private:
 	sf::Text m_resetScoresText;
 	sf::Text m_backText;
 
-	sf::Vector2f m_resetScoresTextPos{};
-	sf::Vector2f m_backTextsPos{};
+	sf::Vector2f m_resetScoresTextPos{150.f, 200.f};
+	sf::Vector2f m_backTextsPos{275.f, 300.f};
 
 
 	sf::Text* m_pActiveText;

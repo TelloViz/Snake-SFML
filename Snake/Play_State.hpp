@@ -1,6 +1,6 @@
 #pragma once
 #include "IState.hpp"
-
+#include "SFML/Audio.hpp"
 #include <iostream>
 #include <string>
 #include <random>
@@ -100,6 +100,16 @@ private:
 
 
 	Cut_Tail_Vector		m_cutTail;
+
+	sf::SoundBuffer m_appleGetBuff;
+	sf::SoundBuffer m_boneCrashSoundBuff;
+	sf::SoundBuffer m_tailCrashSoundBuff;
+
+	sf::Sound m_appleGetSound;
+	sf::Sound m_boneCrashSound;
+	sf::Sound m_tailCrashSound;
+
+
 
 	//**** Members for generating random numbers ****
 	std::random_device		m_device;

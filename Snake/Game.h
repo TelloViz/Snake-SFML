@@ -8,6 +8,7 @@
 #include "Play_State.hpp"
 #include "Pause_State.hpp"
 #include "Game_Over_State.hpp"
+#include "Options_State.hpp"
 #include "IContext.hpp"
 
 
@@ -107,12 +108,14 @@ private: // private methods
 
      virtual void RequestGameOver(int);
 
+     virtual void RequestOptions();
 
+     virtual void RequestMute() { m_bMuted = !m_bMuted; }
+     virtual bool RequestMuteStatus() { return m_bMuted; }
 
 	virtual sf::VideoMode RequestVideoMode() const {
 		return m_vMode;
 	}
-
 
 
 private: // private data
@@ -122,6 +125,8 @@ private: // private data
 	std::queue<sf::Keyboard::Key> keyQueue;
 	std::stack<IState*> m_pStateStack;
 	bool m_bShouldTerminate{ false };
+     bool m_bMuted{ false };
+
 	sf::VideoMode m_vMode{ 600, 600 };
 	sf::Time m_uptime;
 

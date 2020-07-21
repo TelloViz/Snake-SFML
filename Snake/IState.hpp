@@ -35,5 +35,10 @@ protected:
 	virtual void RequestPause() { m_pContext->RequestPause(); }
 
 	virtual void RequestGameOver(int score) { m_pContext->RequestGameOver(score); }
+
+	virtual void RequestOptions() { m_pContext->RequestOptions(); }
+
+	virtual void RequestMute() { m_pContext->RequestMute(); }
+	virtual bool RequestMuteStatus() { return m_pContext->RequestMuteStatus(); }
 	// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 };

@@ -48,6 +48,15 @@ Menu_State::Menu_State(IContext* ctx)
 	m_pActiveText->setFillColor(m_ActiveTextColor.x);
 	m_pActiveText->setOutlineColor(m_ActiveTextColor.y);
 
+	if (!m_cycleSoundBuff.loadFromFile("SoundEffect7.ogg")) std::cout << "Failed to load sound 7" << std::endl; // TODO find or make my own sounds so I'm not infringing BM
+	if (!m_selectionSoundBuff.loadFromFile("SoundEffect8.ogg")) std::cout << "Failed to load sound 8" << std::endl;
+
+	m_cycleSound.setBuffer(m_cycleSoundBuff);
+	m_selectionSound.setBuffer(m_selectionSoundBuff);
+
+	m_cycleSound.setLoop(false);
+	m_selectionSound.setLoop(false);
+
 }
 
 void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
@@ -61,16 +70,20 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 	
 	if (inputKey == UP_CMD)
 	{
+		m_cycleSound.play();
 		cycleActiveSelection(UP);
 	}
 
 	if (inputKey == DOWN_CMD)
 	{
+		m_cycleSound.play();
 		cycleActiveSelection(DOWN);
 	}
 
 	if (inputKey == SELECT_CMD)
 	{
+		m_selectionSound.play();
+		sf::sleep(sf::seconds(1));
 		m_bShouldTransistion = true;
 		if (m_pActiveText == &m_startText)
 		{
@@ -88,10 +101,7 @@ void Menu_State::ProcessInputQueue(std::queue<sf::Keyboard::Key> &inputQueue)
 		}
 	}
 
-
-
 	inputQueue.pop();
-
 
 }
 
@@ -180,4 +190,7 @@ void Menu_State::cycleActiveSelection(Direction dir)
 		}
 		break;
 	}
+
+
+	
 }

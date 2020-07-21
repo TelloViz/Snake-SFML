@@ -1,7 +1,11 @@
 #pragma once
 #include "IState.hpp"
+
+#include "SFML/Audio.hpp"
+
 #include "Static_Graphic.h"
 #include <iostream>
+
 
 
 
@@ -29,7 +33,6 @@ private:
 	const sf::Keyboard::Key SELECT_CMD{ sf::Keyboard::Key::Enter };
 
 
-	sf::RectangleShape m_background;
 	Static_Graphic m_logoGraphic;
 	Static_Graphic m_borderGraphic;
 	Static_Graphic m_selectionBorder;
@@ -37,7 +40,6 @@ private:
 	sf::Vector2f m_selectionBorderPos{ 390.f, 300.f };
 
 	sf::Font m_menuFont;
-
 
 	sf::Text m_menuText;
 	sf::Text m_startText;
@@ -50,8 +52,6 @@ private:
 	sf::Vector2f m_startTextPos{ 250.f, 325.f };
 	sf::Vector2f m_optionsTextPos{235.f, 375.f};
 	sf::Vector2f m_quitTextPos{ 250.f, 425.f };
-
-
 	
 
 	// TODO These are also used in other states. Need to centralize this information. 
@@ -67,6 +67,13 @@ private:
 
 
 	const sf::Vector2u WINDOW_SIZE;
+
+	sf::SoundBuffer m_cycleSoundBuff;
+	sf::SoundBuffer m_selectionSoundBuff;
+
+	sf::Sound m_cycleSound;
+	sf::Sound m_selectionSound;
+
 
 
 

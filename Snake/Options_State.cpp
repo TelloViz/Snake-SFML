@@ -1,7 +1,23 @@
 #include "Options_State.hpp"
+#include <fstream>
 #include <iostream>
 
-Options_State::Options_State(IContext* ctx) 
+
+void Options_State::encrypt_and_save()
+{
+	std::ofstream out_stream{ "highscore.txt", std::ofstream::binary };
+	cereal::BinaryOutputArchive out_archive(out_stream); // Create an output archive
+
+	std::string firstNameString = "APA";
+	std::string secNameString = "BTA";
+	std::string thirdNameString = "OMA";
+
+	out_archive(100, firstNameString, 50, secNameString, 10, thirdNameString);
+
+}
+
+
+Options_State::Options_State(IContext* ctx)
 	: IState{ctx}, 
 	m_pActiveText{&m_resetScoresText}, 
 	m_selectionBorder{ "Options_Selection_Box.png" }
@@ -76,17 +92,24 @@ void Options_State::ProcessInputQueue(std::queue<sf::Keyboard::Key>& inputQueue)
 
 	if (inputKey == SELECT_CMD)
 	{
-		if (m_pActiveText == &m_backText)
-		{
-			if(!RequestMuteStatus()) m_selectionSound.play();
-			sf::sleep(sf::seconds(1));
-			RequestStatePopTransition();
-		}
-		else if (m_pActiveText == &m_muteText)
+
+		if (m_pActiveText == &m_muteText)
 		{
 			if (!RequestMuteStatus()) m_selectionSound.play();
 			RequestMute();
 		}
+		else if (m_pActiveText == &m_resetScoresText)
+		{
+			if (!RequestMuteStatus()) m_selectionSound.play();
+			encrypt_and_save();
+		}		
+		else if (m_pActiveText == &m_backText)
+			{
+				if(!RequestMuteStatus()) m_selectionSound.play();
+				sf::sleep(sf::seconds(1));
+				RequestStatePopTransition();
+			}
+		
 
 	}
 

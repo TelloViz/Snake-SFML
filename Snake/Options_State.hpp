@@ -2,10 +2,26 @@
 #include "IState.hpp"
 #include "SFML/Audio.hpp"
 #include "Static_Graphic.h"
+#include <string>
+#include <cereal/cereal.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/string.hpp>
 
 class Options_State :
 	public IState
 {
+
+	// This method lets cereal know which data members to serialize
+	template<class Archive>
+	void serialize(Archive& archive)
+	{
+		std::string m_firstNameString = "APA";
+		std::string m_secNameString = "BTA";
+		std::string m_thirdNameString = "OMA";
+		archive(100, m_firstNameString, 50, m_secNameString, 10, m_thirdNameString); // serialize things by passing them to the archive
+
+	}
+	void encrypt_and_save();
 public:
 
 	Options_State(IContext* ctx);

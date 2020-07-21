@@ -63,4 +63,9 @@ protected:
 
      virtual void RequestGameOver(int score) {}
 
+     virtual void RequestOptions() {}
+
+     virtual void RequestMute() {}
+     virtual bool RequestMuteStatus() { return false; }
+
 };

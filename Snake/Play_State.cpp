@@ -119,8 +119,17 @@ Play_State::Play_State(IContext* ctx)
 	m_pressAnyKeyText.setOutlineThickness(2);
 	// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+	if (!m_appleGetBuff.loadFromFile("SoundEffect16.ogg")) std::cout << "Failed to load sound 16" << std::endl; // TODO find or make my own sounds so I'm not infringing BM
+	m_appleGetSound.setBuffer(m_appleGetBuff);
+	m_appleGetSound.setLoop(false);
 
+	if (!m_boneCrashSoundBuff.loadFromFile("SoundEffect15.ogg")) std::cout << "Failed to load sound 15" << std::endl; // TODO find or make my own sounds so I'm not infringing BM
+	m_boneCrashSound.setBuffer(m_boneCrashSoundBuff);
+	m_boneCrashSound.setLoop(false);
 
+	if (!m_tailCrashSoundBuff.loadFromFile("SoundEffect21.ogg")) std::cout << "Failed to load sound 21" << std::endl; // TODO find or make my own sounds so I'm not infringing BM
+	m_tailCrashSound.setBuffer(m_tailCrashSoundBuff);
+	m_tailCrashSound.setLoop(false);
 
 }
 //:::::::::::::::::::: END CTOR BODY::::::::::::::::::::::::::::::::::::::::::::::::
@@ -234,6 +243,7 @@ void Play_State::UpdateState()
 		sf::Vector2i collisionPoint;
 		if (m_ruleMonitor.Check_For_Self_Collision(m_snake, collisionPoint))
 		{
+			if (!RequestMuteStatus()) m_tailCrashSound.play();
 			auto headIter{ m_snake.begin() };
 			std::advance(headIter, 1);
 			auto bodyIter{ headIter };
@@ -265,6 +275,7 @@ void Play_State::UpdateState()
 		if (m_ruleMonitor.Check_For_Collision(m_snake, m_cutTail) 
 			&& !m_bSelfCollisionThisFrame)
 		{
+			if(!RequestMuteStatus()) m_boneCrashSound.play();
 			m_ruleMonitor.Decrement_Lives();
 		}
 		// ::::::::::: END CHECK FOR COLLISION WITH BONES :::::::::::::::::::::::::
@@ -304,6 +315,7 @@ void Play_State::UpdateState()
 		// ******************* Check for Apple Collision *****************************
 		if (m_ruleMonitor.Check_For_Apple_Collision(m_snake, m_appleCoord))
 		{
+			if(!RequestMuteStatus()) m_appleGetSound.play();
 			m_snkController.Extend_Snake(m_snake);
 			m_bSpawnApple = true;
 			m_score = m_ruleMonitor.Num_Apples_Collected();

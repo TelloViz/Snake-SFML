@@ -21,15 +21,20 @@ private: // private methods
 
 private:
 
+	Static_Graphic m_selectionBorder;
+	sf::Vector2f m_selectionBorderPos{ 175.f, 150.f };
+
 	sf::Font m_menuFont;
 
+	sf::Text m_optionsHeaderText;
 	sf::Text m_resetScoresText;
 	sf::Text m_muteText;
 	sf::Text m_backText;
 
-	sf::Vector2f m_resetScoresTextPos{ 175.f, 200.f };
-	sf::Vector2f m_muteTextPos{235.f, 300.f};
-	sf::Vector2f m_backTextPos{235.f, 400.f};
+	sf::Vector2f m_optionsHeaderTextPos{180.f, 100.f};
+	sf::Vector2f m_resetScoresTextPos{ 200.f, 160.f };
+	sf::Vector2f m_muteTextPos{240.f, 210.f};
+	sf::Vector2f m_backTextPos{265.f, 400.f};
 
 
 	sf::Text* m_pActiveText;

@@ -1,9 +1,25 @@
 #include "Options_State.hpp"
 #include <iostream>
 
-Options_State::Options_State(IContext* ctx) : IState{ctx}, m_pActiveText{&m_resetScoresText}
+Options_State::Options_State(IContext* ctx) 
+	: IState{ctx}, 
+	m_pActiveText{&m_resetScoresText}, 
+	m_selectionBorder{ "Options_Selection_Box.png" }
 {
+
+	
+	m_selectionBorder.setPosition(m_selectionBorderPos);
+
+
 	if (!m_menuFont.loadFromFile("whitrabt.ttf")) std::cout << "failed to load font" << std::endl; // TODO, definitely remove this from happening every frame yeesh
+
+	m_optionsHeaderText.setFont(m_menuFont);
+	m_optionsHeaderText.setCharacterSize(35);
+	m_optionsHeaderText.setString("Options Menu");
+	m_optionsHeaderText.setPosition(m_optionsHeaderTextPos);
+	m_optionsHeaderText.setFillColor(m_idleTextColor.x);
+	m_optionsHeaderText.setOutlineColor(m_idleTextColor.y);
+	m_optionsHeaderText.setOutlineThickness(2);
 
 	m_resetScoresText.setFont(m_menuFont);
 	m_resetScoresText.setString("reset scores");
@@ -84,6 +100,8 @@ void Options_State::UpdateState()
 void Options_State::RenderState(sf::RenderWindow& window)
 {
 	window.clear(BRIGHT_COLOR);
+	window.draw(m_optionsHeaderText);
+	window.draw(m_selectionBorder);
 	window.draw(m_resetScoresText);
 	window.draw(m_muteText);
 	window.draw(m_backText);

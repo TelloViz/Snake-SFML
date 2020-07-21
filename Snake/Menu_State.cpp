@@ -7,7 +7,7 @@ Menu_State::Menu_State(IContext* ctx)
 	WINDOW_SIZE{ sf::Vector2u{600, 600} },
 	m_logoGraphic{"Snake_Logo.png"},
 	m_borderGraphic{"Menu_Border.png"},
-	m_selectionBorder{"Selection_Box.png"}, // reusing score display box for now
+	m_selectionBorder{"Selection_Box.png"}, 
 	m_pActiveText{&m_startText}
 {
 	RequestWindowResize(WINDOW_SIZE);

@@ -137,7 +137,7 @@ void Menu_State::RenderState(sf::RenderWindow& window)
 	window.display();
 }
 
-void Menu_State::cycleActiveSelection(Direction dir)
+void Options_State::cycleActiveSelection(Direction dir)
 {
 
 	m_pActiveText->setFillColor(m_idleTextColor.x);

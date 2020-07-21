@@ -1,5 +1,6 @@
 #pragma once
 #include "IState.hpp"
+#include "SFML/Audio.hpp"
 #include "Static_Graphic.h"
 
 class Options_State :
@@ -12,6 +13,12 @@ public:
 	virtual void ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue);
 	virtual void UpdateState();
 	virtual void RenderState(sf::RenderWindow& window);
+
+private: // private methods
+
+	enum Direction { UP, DOWN };
+	void cycleActiveSelection(Direction dir);
+
 private:
 
 	sf::Font m_menuFont;
@@ -22,6 +29,15 @@ private:
 	sf::Vector2f m_resetScoresTextPos{};
 	sf::Vector2f m_backTextsPos{};
 
+
+	sf::Text* m_pActiveText;
+
+
+	sf::SoundBuffer m_cycleSoundBuff;
+	sf::SoundBuffer m_selectionSoundBuff;
+
+	sf::Sound m_cycleSound;
+	sf::Sound m_selectionSound;
 
 	const sf::Keyboard::Key UP_CMD{ sf::Keyboard::Key::Up };
 	const sf::Keyboard::Key DOWN_CMD{ sf::Keyboard::Key::Down };

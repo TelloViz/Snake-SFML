@@ -8,6 +8,7 @@
 #include "Play_State.hpp"
 #include "Pause_State.hpp"
 #include "Game_Over_State.hpp"
+#include "Options_State.hpp"
 #include "IContext.hpp"
 
 

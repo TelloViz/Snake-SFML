@@ -121,3 +121,8 @@ void Snake_Engine::RequestGameOver(int score)
      RequestStateTransition(new Game_Over_State{ this, score });
 
 }
+
+void Snake_Engine::RequestOptions()
+{
+     RequestStatePushTransition(new Options_State(this));
+}

@@ -71,6 +71,9 @@ To get a local copy up and running follow these simple steps.
 
 * Cereal : https://uscilab.github.io/cereal/
 * SFML 2.5.1 : https://www.sfml-dev.org/download.php
+* OpenAL
+* OpenGL
+* Freetype
 
 ### Installation
  

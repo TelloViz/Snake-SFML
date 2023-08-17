@@ -1,3 +1,9 @@
+# Archival Project
+
+### This repository now includes all needed libs and project to clone, build and run out of box.
+
+---
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -69,11 +75,11 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Cereal : https://uscilab.github.io/cereal/
-* SFML 2.5.1 : https://www.sfml-dev.org/download.php
-* OpenAL
-* OpenGL
-* Freetype
+~~* Cereal : https://uscilab.github.io/cereal/~~
+~~* SFML 2.5.1 : https://www.sfml-dev.org/download.php~~
+~~* OpenAL~~
+~~* OpenGL~~
+~~* Freetype~~
 
 ### Installation
  

@@ -1,8 +1,0 @@
-﻿  Game.cpp
-  Game_Over_State.cpp
-  main.cpp
-  Options_State.cpp
-  Pause_State.cpp
-  Static_Graphic.cpp
-  Generating Code...
-  Snake.vcxproj -> C:\Users\lollisjosh\Desktop\Dev\Snake-SFML\Debug\Snake.exe

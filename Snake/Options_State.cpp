@@ -17,7 +17,7 @@ void Options_State::encrypt_and_save()
 }
 
 
-Options_State::Options_State(IContext* ctx)
+Options_State::Options_State(sm::IContext* ctx)
 	: IState{ctx}, 
 	m_pActiveText{&m_resetScoresText}, 
 	m_selectionBorder{ "Options_Selection_Box.png" }

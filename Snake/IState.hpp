@@ -8,7 +8,7 @@
 class IState
 {
 public:
-	IState(IContext* ctx) : m_pContext{ ctx } {}
+	IState(sm::IContext* ctx) : m_pContext{ ctx } {}
 	virtual ~IState() {}
 	virtual void ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue) = 0;
 	virtual void UpdateState() = 0;
@@ -16,9 +16,9 @@ public:
 	bool IsFinished() const { return m_isFinished; }
 
 protected:
-	IContext* m_pContext;
+	sm::IContext* m_pContext;
 	std::map<sf::Keyboard::Key, ICommand*> m_cmdMap; // TODO: I think this needs to be removed
-	bool m_isFinished;
+	bool m_isFinished{ false };
 
 	// ::::::::::::::: Context Requests::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 	// :::: Use these to make requests of the context from the current state of operation::::::::::::::::::

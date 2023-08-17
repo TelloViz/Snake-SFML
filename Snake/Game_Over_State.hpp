@@ -18,7 +18,7 @@ class Game_Over_State :
 	enum Rank { NONE = 0, FIRST, SECOND, THIRD };
 
 public:
-	Game_Over_State(IContext* ctx, int score);
+	Game_Over_State(sm::IContext* ctx, int score);
 	~Game_Over_State();
 	virtual void ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue);
 	virtual void UpdateState();

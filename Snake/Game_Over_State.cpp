@@ -2,7 +2,7 @@
 //#include "Play_State.hpp"
 
 
-Game_Over_State::Game_Over_State(IContext* ctx, int score)
+Game_Over_State::Game_Over_State(sm::IContext* ctx, int score)
 	: IState{ctx},
 	m_score{ score },
 	m_bInitialsNeeded{false},

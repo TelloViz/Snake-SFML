@@ -12,7 +12,7 @@
 #include "IContext.hpp"
 
 
-class Snake_Engine : public IContext
+class Snake_Engine : public sm::IContext
 {
 public:
 	Snake_Engine();

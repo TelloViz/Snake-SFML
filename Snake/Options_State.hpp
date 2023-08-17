@@ -24,7 +24,7 @@ class Options_State :
 	void encrypt_and_save();
 public:
 
-	Options_State(IContext* ctx);
+	Options_State(sm::IContext* ctx);
 
 	virtual void ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue);
 	virtual void UpdateState();

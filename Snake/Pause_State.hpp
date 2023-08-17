@@ -7,7 +7,7 @@ class Pause_State :
 	public IState
 {
 public:
-	Pause_State(IContext* ctx);
+	Pause_State(sm::IContext* ctx);
 	virtual ~Pause_State();
 	virtual void ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue);
 	virtual void UpdateState();

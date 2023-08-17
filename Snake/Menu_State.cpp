@@ -2,7 +2,7 @@
 
 
 
-Menu_State::Menu_State(IContext* ctx) 
+Menu_State::Menu_State(sm::IContext* ctx) 
 	: IState(ctx),
 	WINDOW_SIZE{ sf::Vector2u{600, 600} },
 	m_logoGraphic{"Snake_Logo.png"},

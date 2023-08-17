@@ -32,7 +32,7 @@ class Play_State :
 {
 public: // TODO make a state machine class to handle state transitioning. a middle man between the game(context) and the states
 
-	Play_State(IContext* ctx);
+	Play_State(sm::IContext* ctx);
 	virtual void			ProcessInputQueue(std::queue< sf::Keyboard::Key>& inputQueue);
 	virtual void			UpdateState();
 	virtual void			RenderState(sf::RenderWindow& window);

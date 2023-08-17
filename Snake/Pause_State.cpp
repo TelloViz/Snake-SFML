@@ -1,7 +1,7 @@
 #include "Pause_State.hpp"
 
 
-Pause_State::Pause_State(IContext* ctx)
+Pause_State::Pause_State(sm::IContext* ctx)
 
 // ************* Pause_State init of members ***************************
 	: IState{ctx},

@@ -2,7 +2,7 @@
 
 
 
-Play_State::Play_State(IContext* ctx)
+Play_State::Play_State(sm::IContext* ctx)
 
 // *******************Play State Initialization of Members*******************************
 	: IState(ctx),

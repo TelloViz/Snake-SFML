@@ -9,3 +9,5 @@ license.txt
 .vs/*
 x64/*
 "Art Files"/*
+/Snake/include/SFML-2.5.1/examples
+/Snake/include/SFML-2.5.1/doc/html

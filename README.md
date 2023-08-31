@@ -31,10 +31,14 @@
   <h3 align="center">Snake + SFML</h3>
 
   <p align="center">
-    Snake clone made with SFML.    
-</p>
+    Snake clone made with SFML. 
+  </p>
 
+<h4>Check out a demo video on youtube!</h4>
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=DtEGNMsFRR8
+" target="_blank"><img src="http://img.youtube.com/vi/DtEGNMsFRR8/0.jpg" 
+alt="IMAGE ALT TEXT HERE" border="10" /></a>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents

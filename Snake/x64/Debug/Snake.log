@@ -1,0 +1,25 @@
+﻿  Debug_Window.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Debug_Window.hpp(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Game.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Game.h(5,10): fatal  error C1083: Cannot open include file: 'SFML/System/Clock.hpp': No such file or directory
+  Game_Over_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\IState.hpp(6,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  main.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Game.h(5,10): fatal  error C1083: Cannot open include file: 'SFML/System/Clock.hpp': No such file or directory
+  Menu_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\IState.hpp(6,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Options_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\IState.hpp(6,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Pause_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\IState.hpp(6,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Play_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\IState.hpp(6,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Snake.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake.h(8,10): fatal  error C1083: Cannot open include file: 'SFML/System/Vector2.hpp': No such file or directory
+  Snake_Controller.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Controller.h(10,10): fatal  error C1083: Cannot open include file: 'SFML/System/Vector2.hpp': No such file or directory
+  Snake_Rule_Monitor.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake.h(8,10): fatal  error C1083: Cannot open include file: 'SFML/System/Vector2.hpp': No such file or directory
+  Static_Graphic.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Static_Graphic.h(3,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Generating Code...

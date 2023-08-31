@@ -1,0 +1,19 @@
+﻿  Debug_Window.cpp
+  Game.cpp
+  Game_Over_State.cpp
+  main.cpp
+  Menu_State.cpp
+  Options_State.cpp
+  Pause_State.cpp
+  Play_State.cpp
+  Snake.cpp
+  Snake_Controller.cpp
+  Snake_Rule_Monitor.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(15,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(28,27): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(36,27): warning C4018: '>=': signed/unsigned mismatch
+  Static_Graphic.cpp
+  Generating Code...
+     Creating library C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Debug\Snake.lib and object C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Debug\Snake.exp
+  Snake.vcxproj -> C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Debug\Snake.exe

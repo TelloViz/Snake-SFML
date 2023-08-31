@@ -1,0 +1,20 @@
+﻿  Debug_Window.cpp
+  Game.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Game_Over_State.hpp(10,10): fatal  error C1083: Cannot open include file: 'cereal/cereal.hpp': No such file or directory
+  Game_Over_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Game_Over_State.hpp(10,10): fatal  error C1083: Cannot open include file: 'cereal/cereal.hpp': No such file or directory
+  main.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Game_Over_State.hpp(10,10): fatal  error C1083: Cannot open include file: 'cereal/cereal.hpp': No such file or directory
+  Menu_State.cpp
+  Options_State.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Options_State.hpp(6,10): fatal  error C1083: Cannot open include file: 'cereal/cereal.hpp': No such file or directory
+  Pause_State.cpp
+  Play_State.cpp
+  Snake.cpp
+  Snake_Controller.cpp
+  Snake_Rule_Monitor.cpp
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(13,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(15,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(28,27): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\lollisjosh\Desktop\Dev\snake_test_8_31\Snake-SFML\Snake\Snake_Rule_Monitor.cpp(36,27): warning C4018: '>=': signed/unsigned mismatch
+  Static_Graphic.cpp

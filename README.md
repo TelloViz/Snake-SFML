@@ -91,9 +91,9 @@ To get a local copy up and running follow these simple steps.
 ```sh
 https://github.com/Tello-/Snake-SFML.git
 ```
-2. Link project to Cereal and SFML 2.5.1 
-3. Build .sln(vs2019 win32)
-4. Run
+2. Build .sln(vs2019 win32)
+3. Run
+4. Enjoy!
 
 <!-- CONTROLS -->
 ## Controls

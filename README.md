@@ -16,7 +16,12 @@
 
 
 <!-- PROJECT LOGO -->
-[![Snake + SFML Logo](https://github.com/Tello-/Snake-SFML/blob/master/Snake/Snake_Logo.png)](https://github.com/Tello-/Snake-SFML)
+<p align="center">
+  <img src="resources/snakerlogo.png" alt="Snaker Logo" width="200">
+  <img src="resources/Snake_Logo.png" alt="Snake + SFML Logo">
+  <br>
+
+</p>
 
 ### Snake + SFML
 
@@ -139,6 +144,6 @@ Josh Lollis - lollisjosh@csu.fullerton.edu
 [license-url]: https://github.com/Tello-/Snake-SFML/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/lollisjosh
-[product-screenshot]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/TitleScreen.JPG
-[product-screenshot2]: https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/Bones2.JPG
-[product-screenshot3]:https://github.com/Tello-/Snake-SFML/blob/master/Screenshots/HighScoreScreen.JPG
+[product-screenshot]: Screenshots/TitleScreen.JPG
+[product-screenshot2]: Screenshots/Bones2.JPG
+[product-screenshot3]: Screenshots/HighScoreScreen.JPG

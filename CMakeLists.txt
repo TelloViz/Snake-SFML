@@ -32,36 +32,36 @@ FetchContent_MakeAvailable(SFML)
 
 # Project sources
 set(SOURCES
-    Snake/Debug_Window.cpp
-    Snake/Game.cpp
-    Snake/Game_Over_State.cpp
-    Snake/main.cpp
-    Snake/Menu_State.cpp
-    Snake/Options_State.cpp
-    Snake/Pause_State.cpp
-    Snake/Play_State.cpp
-    Snake/Snake.cpp
-    Snake/Snake_Controller.cpp
-    Snake/Snake_Rule_Monitor.cpp
-    Snake/Static_Graphic.cpp
+    src/Debug_Window.cpp
+    src/Game.cpp
+    src/Game_Over_State.cpp
+    src/main.cpp
+    src/Menu_State.cpp
+    src/Options_State.cpp
+    src/Pause_State.cpp
+    src/Play_State.cpp
+    src/Snake.cpp
+    src/Snake_Controller.cpp
+    src/Snake_Rule_Monitor.cpp
+    src/Static_Graphic.cpp
 )
 
 set(HEADERS
-    Snake/Debug_Window.hpp
-    Snake/Game.h
-    Snake/Game_Over_State.hpp
-    Snake/ICommand.hpp
-    Snake/IContext.hpp
-    Snake/IReceiver.hpp
-    Snake/IState.hpp
-    Snake/Menu_State.hpp
-    Snake/Options_State.hpp
-    Snake/Pause_State.hpp
-    Snake/Play_State.hpp
-    Snake/Snake.h
-    Snake/Snake_Controller.h
-    Snake/Snake_Rule_Monitor.h
-    Snake/Static_Graphic.h
+    src/Debug_Window.hpp
+    src/Game.h
+    src/Game_Over_State.hpp
+    src/ICommand.hpp
+    src/IContext.hpp
+    src/IReceiver.hpp
+    src/IState.hpp
+    src/Menu_State.hpp
+    src/Options_State.hpp
+    src/Pause_State.hpp
+    src/Play_State.hpp
+    src/Snake.h
+    src/Snake_Controller.h
+    src/Snake_Rule_Monitor.h
+    src/Static_Graphic.h
 )
 
 # Executable target
@@ -69,8 +69,8 @@ add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS})
 
 # Include and linking
 target_include_directories(${PROJECT_NAME} PRIVATE 
-    ${CMAKE_CURRENT_SOURCE_DIR}/Snake
-    ${CMAKE_CURRENT_SOURCE_DIR}/Snake/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE 
@@ -80,11 +80,12 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 # Resource deployment
+# Assets are now cleanly separated in the resources/ directory
 file(GLOB ASSETS 
-    "${CMAKE_CURRENT_SOURCE_DIR}/Snake/*.png"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Snake/*.ogg"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Snake/*.ttf"
-    "${CMAKE_CURRENT_SOURCE_DIR}/Snake/*.txt"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/*.png"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/*.ogg"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/*.ttf"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/*.txt"
 )
 
 foreach(ASSET_PATH ${ASSETS})
@@ -99,7 +100,7 @@ endforeach()
 
 # Specific handling for OpenAL runtime on Windows
 if(WIN32)
-    set(OPENAL_DLL "${CMAKE_CURRENT_SOURCE_DIR}/Snake/openal32.dll")
+    set(OPENAL_DLL "${CMAKE_CURRENT_SOURCE_DIR}/resources/openal32.dll")
     if(EXISTS "${OPENAL_DLL}")
         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different

@@ -1,13 +1,59 @@
- Release/*
-Debug/*
+# IDEs and Editors
+.cache/
+.idea/
+.vs/
+.vscode/
+*.vs
+.vs/*
+*.opendb
+*.ipch
+
+# OS folders
+.DS_Store
+
+# Build systems
+build/
+Release/
+Debug/
+x64/
+Makefile
+*.make
+*.Ninja*
+compile_commands.json
+
+# CMake files
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CPack*.cmake
+CTest*.cmake
+_deps/
+SFMLConfig.cmake
+SFMLConfigVersion.cmake
+SFML*Dependencies.cmake
+
+# Binary output
+bin/
+*.a
+*.so
+*.exe
+*.pdb
+
+# Test/coverage files
+*include.cmake
+patch_coverage.cmake
+
+# Xcode files
+*.xcsettings
+*.xcscheme
+*.pbxproj
+*.xcuserstate
+
+# Project-specific
 *.aseprite
 *.zip
 license.txt
-*.opendb
-*.ipch
-*.vs
-.vs/*
-x64/*
-"Art Files"/*
+"Art Files"/
 /Snake/include/SFML-2.5.1/examples
 /Snake/include/SFML-2.5.1/doc/html

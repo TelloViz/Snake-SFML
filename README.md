@@ -1,9 +1,3 @@
-# Archival Project
-
-### This repository now includes all needed libs and project to clone, build and run out of box.
-
----
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,23 +16,15 @@
 
 
 <!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/Tello-/Snake-SFML">
-    <img src="https://github.com/Tello-/Snake-SFML/blob/master/Snake/Snake_Logo.png" alt="Logo" width="336" height="112 ">
-  </a>
+[![Snake + SFML Logo](https://github.com/Tello-/Snake-SFML/blob/master/Snake/Snake_Logo.png)](https://github.com/Tello-/Snake-SFML)
 
-  <h3 align="center">Snake + SFML</h3>
+### Snake + SFML
 
-  <p align="center">
-    Snake clone made with SFML. 
-  </p>
+Snake clone built with C++ and SFML using the CMake build system.
 
-<h4>Check out a demo video on youtube!</h4>
+#### Check out a demo video on YouTube!
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=DtEGNMsFRR8
-" target="_blank"><img src="http://img.youtube.com/vi/DtEGNMsFRR8/0.jpg" 
-alt="IMAGE ALT TEXT HERE" border="10" /></a>
+[![Demo Video](http://img.youtube.com/vi/DtEGNMsFRR8/0.jpg)](http://www.youtube.com/watch?v=DtEGNMsFRR8)
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -67,8 +53,9 @@ Snake+SFML is a clone of the classic game popularized by Nokia. Eat fruit to inc
 
 ### Built With
 
-* [SFML 2.5.1 Visual C++ 15 (2017) - 32-bit](https://www.sfml-dev.org/download/sfml/2.5.1/)
+* [SFML 2.5.1](https://www.sfml-dev.org/download/sfml/2.5.1/)
 * [Cereal](https://github.com/USCiLab/cereal.git)
+* [CMake](https://cmake.org/)
 
 
 
@@ -79,20 +66,30 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-~~* Cereal : https://uscilab.github.io/cereal/~~
-~~* SFML 2.5.1 : https://www.sfml-dev.org/download.php~~
-~~* OpenAL~~
-~~* OpenGL~~
-~~* Freetype~~
+* CMake 3.16+
+* A C++17 compatible compiler (Visual Studio 2019+, GCC, or Clang)
+* Git
 
 ### Installation
  
 1. Clone the repo
 ```sh
-https://github.com/Tello-/Snake-SFML.git
+git clone https://github.com/Tello-/Snake-SFML.git
+cd Snake-SFML
 ```
-2. Build .sln(vs2019 win32)
-3. Run
+2. Configure and build with CMake
+```sh
+# Create build directory and configure
+cmake -B build
+
+# Build the project
+cmake --build build --config Release
+```
+3. Run the game
+```sh
+# The executable and assets will be in build/bin/
+./build/bin/Snake
+```
 4. Enjoy!
 
 <!-- CONTROLS -->
@@ -123,9 +120,8 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Josh Lollis - lollisjosh@gmail.com
+Josh Lollis - lollisjosh@csu.fullerton.edu
 
-Project Link: [https://github.com/Tello-/Snake-SFML)
 
 
 

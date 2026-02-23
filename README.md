@@ -16,12 +16,13 @@
 
 
 <!-- PROJECT LOGO -->
-<p align="center">
-  <img src="resources/snakerlogo.png" alt="Snaker Logo" width="200">
-  <img src="resources/Snake_Logo.png" alt="Snake + SFML Logo">
-  <br>
+<div align="center">
 
-</p>
+<img src="resources/snakerlogo.png" alt="Snaker Logo" width="175">
+
+<img src="resources/Snake_Logo.png" alt="Snake Title Logo"
+width="95%">
+</div>
 
 ### Snake + SFML
 
